@@ -1,10 +1,41 @@
-<?php
-    if (isset ($_POST['numFilm'])) {
-        $num = $_POST['numFilm'];
-        $req = mysql_query("select Titre from films where NoFilm = 1") or die("Erreur!!!");
-        $donnee = mysql_fetch_row($req);
-        echo $donnee[0];
-    }
-?>
+﻿<?php
+	//Pour avoir la fonction de recherche
+	include("modele/modeleFilms.php");
+	//pour avoir les acteurs de film
+	include("modele/modeleActeurs.php");
+	//on verifie si les elements du formulaire existe
+	if(isset($_POST['numFilm'])){
+	
+		//on initialise la variable
+		$numFilm = $_POST['numFilm'] ;
+		//on appelle la fonction qui permet de trouver un film selon son numero
+		$film = getFilm($numFilm);
+		
+		//Si on a trouve le film, on affiche ces caracteristiques
+		if(count($film) > 1){
+			echo '<h1>Descriptif du film</h1>';
+			echo '<table>';
+				echo '<tr><td>Numéro du film </td><td>'.$film["NoFilm"].'</td></tr>
+					<tr><td>Titre </td><td>'.$film["Titre"].'</td></tr>
+					<tr><td>Nationalité </td><td>'.$film["Nationalite"].'</td></tr>
+					<tr><td>Réalisateur </td><td>'.$film["Realisateur"].'</td></tr>
+					<tr><td>Année de production </td><td>'.$film["Annee"].'</td></tr>
+					<tr><td>Couleur </td><td>'.$film["Couleur"].'</td></tr>
+					<tr><td>Durée </td><td>'.$film["Duree"].'</td></tr>
+					<tr><td>Résumé </td><td>'.$film["Synopsis"].'</td></tr>
+					<tr><td>Genre </td><td>'.$film["Genre"].'</td></tr>
+					<tr><td>Liste des principaux acteurs </td><td>'.getActeursFilm($numFilm).'</td></tr>
+				';
+			echo '</table>';
+		}
+		else{
+			echo '<h1>Le numéro '.$numFilm.' n\'existe pas !</h1>';
+		}
+	}
+	else{
+		echo "Numéro de film incorrect !";
+	}
+	//Lien de retour
+	echo '<a href="index.php?module=accueilDescriptif">Retour</a>';
 
-coucoucoucoucou
+?>

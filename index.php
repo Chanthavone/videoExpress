@@ -5,10 +5,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<!--<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">-->
 		<link href="commun/styles/style.css" rel="stylesheet" type="text/css" />
 		<link rel="icon" type="image/png" href="images/favicon.jpg" />
-		<title></title>
+		<title><?php echo $_GET['module'];?> </title>
 	</head>
 	
 	<body>
@@ -21,9 +22,8 @@
 				ini_set('magic_quotes_gpc', 0);
 
 				// Connexion à la base de données
-				mysql_connect("localhost", "root", "") or die("erreur de connexion BD");
-				mysql_select_db("video82") or die("erreur: " . "video82");
-				
+				$serv = db_connect();
+
 				if (isset ($_GET['module'])){
 					$module = $_GET['module'];
 				}
@@ -37,8 +37,12 @@
 						require("site_client/accueil.php");	
 					break;
 					
-					case "accueildescriptif" : 
+					case "accueilDescriptif" : 
 						require("site_client/accueilDescriptif.php");	
+					break;
+
+					case "accueilRecherche" : 
+						require("site_client/accueilRecherche.php");	
 					break;
 					
 					case "recherche" : 
@@ -60,6 +64,14 @@
 					case "commande" :
 						require("site_client/commande.php");
 					break;
+
+					case "confirmeCommande" :
+						require("site_client/confirmeCommande.php");
+					break;
+					
+					case "executeCommande" :
+						require("site_client/executeCommande.php");
+					break;
 					
 					case "detenues" :
 						require("site_client/detenues.php");
@@ -72,7 +84,15 @@
 					case "menu" :
 						require("site_client/gestion/menu.php");
 					break;
-									
+					
+					case "accueilRetour" :
+						require("site_client/gestion/accueilRetour.php");
+					break;
+					
+					case "retour" :
+						require("site_client/gestion/retour.php");
+					break;
+					
 					default:
 						require("site_client/accueil.php");	
 					break;

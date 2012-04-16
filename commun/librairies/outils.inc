@@ -1,4 +1,8 @@
 ﻿<?php
+
+/*Affiche le nom du site(VideoEXPRESS) et les noms des auteurs de la page courante
+@param[in] $page : Référence de fichier de la page d'accueil du service
+@param[in] $auteurs : Les noms des auteurs */
 function banniere($page,$auteurs) {
 	echo '<div id="header">
 		<div id="banniere">
@@ -13,8 +17,8 @@ function banniere($page,$auteurs) {
 		<div id="menu">
 			<ul class="menu">
 				<li class="menu"> <a href="index.php?module=accueil">Accueil</a> </li>
-				<li class="menu"> <a href="index.php?module=accueildescriptif">Descriptif</a> </li>
-				<li class="menu"> <a href="#">Recherche</a> </li>
+				<li class="menu"> <a href="index.php?module=accueilDescriptif">Descriptif</a> </li>
+				<li class="menu"> <a href="index.php?module=accueilRecherche">Recherche</a> </li>
 				<li class="menu"> <a href="index.php?module=identificationD">IdentificationD</a> </li>
 				<li class="menu"> <a href="index.php?module=identificationC">IdentificationC</a> </li>
 			</ul>
@@ -22,4 +26,36 @@ function banniere($page,$auteurs) {
 	</div>';
 }
 
+/* Effectue une demande de connexion au serveur mysql 
+@return 0 si il y'a une erreur ; sinon elle renvoie la valeur de l'identifiant de connexion
+*/
+function db_connect(){
+	$connect = mysql_connect("localhost", "root", "");
+	if(!$connect){
+		die('Connexion impossible : ' . mysql_error());
+		return 0;
+	}
+	if($mysql_select = mysql_select_db("video82")){
+		return $connect;
+	}
+	else{
+		die('Erreur lors de la selection de la base de donnée : ' . mysql_error());
+		return 0;
+	}
+}
+
+/* Execute une requête
+@param[in] $req : La requête
+@param[in] $serv : La connexion d'identifiant
+@return 0 si il y'a une erreur ; sinon elle renvoie la valeur de l'identifiant de résultat */
+function db_execSQL($req,$serv){
+		//l'encodage
+		mysql_query("SET NAMES 'utf8'");
+		$res = mysql_query($req,$serv);
+		if(!$res){
+			die('Erreur dans la requête : ' . mysql_error());
+			return 0;		
+		}
+		return $res;
+}
 ?>

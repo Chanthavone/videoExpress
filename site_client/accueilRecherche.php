@@ -34,7 +34,7 @@ include("modele/modeleFilms.php");
 		<select name="realisateur">
 			<option value="null"></option>
 			<?php
-				$realisateurs = getRealisateur();
+				$realisateurs = getRealisateurs();
 				foreach($realisateurs as $realisateur){
 					echo '<option value="'.$realisateur.'">'.$realisateur.'</option>';
 				}

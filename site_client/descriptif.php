@@ -14,7 +14,7 @@
 		//Si on a trouve le film, on affiche ces caracteristiques
 		if(count($film) > 1){
 			echo '<h1>Descriptif du film</h1>';
-			echo '<table>';
+			echo '<table border="1">';
 				echo '<tr><td>Numéro du film </td><td>'.$film["NoFilm"].'</td></tr>
 					<tr><td>Titre </td><td>'.$film["Titre"].'</td></tr>
 					<tr><td>Nationalité </td><td>'.$film["Nationalite"].'</td></tr>

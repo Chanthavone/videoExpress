@@ -17,110 +17,121 @@
 			banniere("VideoExpress","Chanthavone et Diallo");
 		?>
 		<div id="conteneur_general">
-			<?php
-				// Désactivation des magic_quotes_gpc
-				ini_set('magic_quotes_gpc', 0);
+			<div id="conteneur_principal" class="conteneur">
+				<?php
+					// Désactivation des magic_quotes_gpc
+					ini_set('magic_quotes_gpc', 0);
 
-				// Connexion à la base de données
-				$serv = db_connect();
+					// Connexion à la base de données
+					$serv = db_connect();
 
-				if (isset ($_GET['module'])){
-					$module = $_GET['module'];
-				}
-				else { 
-					$module = 'accueil';
-				}
+					if (isset ($_GET['module'])){
+						$module = $_GET['module'];
+					}
+					else { 
+						$module = 'accueil';
+					}
 
-				switch($module){
-				
-					case "accueil" : 
-						require("site_client/accueil.php");	
-					break;
+					switch($module){
 					
-					case "accueilDescriptif" : 
-						require("site_client/accueilDescriptif.php");	
-					break;
+						case "accueil" : 
+							require("site_client/accueil.php");	
+						break;
+						
+						case "accueilDescriptif" : 
+							require("site_client/accueilDescriptif.php");	
+						break;
 
-					case "accueilRecherche" : 
-						require("site_client/accueilRecherche.php");	
-					break;
-					
-					case "recherche" : 
-						require("site_client/recherche.php");	
-					break;
-					
-					case "identificationD" : 
-						if(isset($_COOKIE['identite']))
-							require("site_client/detenues.php");	
-						else
-							require("site_client/identificationD.php");
-					break;
-					
-					case "identificationC" : 
-						if(isset($_COOKIE['identite']))
+						case "accueilRecherche" : 
+							require("site_client/accueilRecherche.php");	
+						break;
+						
+						case "recherche" : 
+							require("site_client/recherche.php");	
+						break;
+						
+						case "identificationD" : 
+							if(isset($_COOKIE['identite']))
+								require("site_client/detenues.php");	
+							else
+								require("site_client/identificationD.php");
+						break;
+						
+						case "identificationC" : 
+							if(isset($_COOKIE['identite']))
+								require("site_client/commande.php");
+							else
+								require("site_client/identificationC.php");	
+						break;
+						
+						case "descriptif" :
+							require("site_client/descriptif.php");
+						break;
+
+						case "commande" :
 							require("site_client/commande.php");
-						else
-							require("site_client/identificationC.php");	
-					break;
-					
-					case "descriptif" :
-						require("site_client/descriptif.php");
-					break;
+						break;
 
-					case "commande" :
-						require("site_client/commande.php");
-					break;
+						case "confirmeCommande" :
+							require("site_client/confirmeCommande.php");
+						break;
+						
+						case "executeCommande" :
+							require("site_client/executeCommande.php");
+						break;
+						
+						case "detenues" :
+							require("site_client/detenues.php");
+						break;
+						
+						case "index" :
+							require("site_client/gestion/index.htm");
+						break;
+						
+						case "menu" :
+							require("site_client/gestion/menu.php");
+						break;
+						
+						case "accueilRetour" :
+							require("site_client/gestion/accueilRetour.php");
+						break;
+						
+						case "retour" :
+							require("site_client/gestion/retour.php");
+						break;
+						
+						case "ajoutSelection" :
+							require("site_client/ajoutSelection.php");
+						break;
 
-					case "confirmeCommande" :
-						require("site_client/confirmeCommande.php");
-					break;
-					
-					case "executeCommande" :
-						require("site_client/executeCommande.php");
-					break;
-					
-					case "detenues" :
-						require("site_client/detenues.php");
-					break;
-					
-					case "index" :
-						require("site_client/gestion/index.htm");
-					break;
-					
-					case "menu" :
-						require("site_client/gestion/menu.php");
-					break;
-					
-					case "accueilRetour" :
-						require("site_client/gestion/accueilRetour.php");
-					break;
-					
-					case "retour" :
-						require("site_client/gestion/retour.php");
-					break;
-					
-					case "ajoutSelection" :
-						require("site_client/ajoutSelection.php");
-					break;
+						case "voirSelection" :
+							require("site_client/voirSelection.php");
+						break;
 
-					case "voirSelection" :
-						require("site_client/voirSelection.php");
-					break;
+						case "suppSelection" :
+							require("site_client/suppSelection.php");
+						break;
 
-					case "suppSelection" :
-						require("site_client/suppSelection.php");
-					break;
+						case "viderSelection" :
+							require("site_client/viderSelection.php");
+						break;
+						
+						default:
+							require("site_client/accueil.php");	
+						break;
+					}
 
-					case "viderSelection" :
-						require("site_client/viderSelection.php");
-					break;
-					
-					default:
-						require("site_client/accueil.php");	
-					break;
-				}
-
-			?>
+				?>
+			</div>
+			<div id="conteneur_gauche">
+				<div id="conteneur_identification" class="conteneur">
+					<h1>Identification ici</h1>
+					<h3>Si le mec est identifié ici y'aura un menu avec ts les options(voir commandes, détenus...)</h3>
+				</div>
+				<div id="conteneur_panier" class="conteneur">
+					<h1>Panier ici</h1>
+				</div>
+			</div>
 		</div>
 		<div id="footer">
 			<div id="footer_texte">

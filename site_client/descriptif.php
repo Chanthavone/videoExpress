@@ -3,8 +3,9 @@
 	include("modele/modeleFilms.php");
 	//pour avoir les acteurs de film
 	include("modele/modeleActeurs.php");
+	
 	//on verifie si les elements du formulaire existe
-	if(isset($_POST['numFilm'])){
+	if(isset($_POST['numFilm']) && preg_match("#[0-9]+$#",$_POST['numFilm'])){
 	
 		//on initialise la variable
 		$numFilm = $_POST['numFilm'] ;
@@ -27,13 +28,22 @@
 					<tr><td>Liste des principaux acteurs </td><td>'.getActeursFilm($numFilm).'</td></tr>
 				';
 			echo '</table>';
+			//Ajout selection
+			echo '<form action="index.php?module=ajoutSelection" method="POST">
+				<input type="hidden" name="noFilm" value="'.$film["NoFilm"].'" />
+				<input type="Submit" value="Ajout Selection" />
+				</form>';
+			//Voir selection	
+			echo '<form action="index.php?module=voirSelection" method="POST">
+				<input type="Submit" value="Voir Selection" />
+				</form>';
 		}
 		else{
 			echo '<h1>Le numéro '.$numFilm.' n\'existe pas !</h1>';
 		}
 	}
 	else{
-		echo "Numéro de film incorrect !";
+		echo "<h3>Numéro de film incorrect !</h3>";
 	}
 	//Lien de retour
 	echo '<a href="index.php?module=accueilDescriptif">Retour</a>';

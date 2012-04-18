@@ -1,20 +1,30 @@
 ﻿<h1>Menu</h1>
 <?php
-
+	//Pour avoir la fonction de verification de l'abonne
+	include("modele/modeleAbonnes.php");
+	
 	//on verifie si le nom et le mot de passe existe
 	if(isset($_POST['nom']) || isset($_POST['pass'])){
 		$nom = $_POST['nom'];
 		$pass = $_POST['pass'];
 		$err = false;
+		$messageErreur="";
 		//on verifie la validité du mot de passe
 		if(strlen($pass) < 6 || strlen($pass) > 6){
 			$err = true;
-			$messageErreur = "Le mot de passe doit être de 6 caractéres. <br />";
+			$messageErreur .= "Le mot de passe doit être de 6 caractéres. <br />";
 		}
 		//on verifie la validité du nom
-		if(!preg_match("#^[A-Z][a-z]{2,29}$#",$nom)){
+		if(!preg_match("#^[A-Z][a-z]{2,29}$#",$nom) && !$err){
 			$err = true;
 			$messageErreur .= "Le nom entré est incorrect. Le nom doit commencer par une majuscule et doit être composé de lettre. <br />";
+		}
+		//on appelle la fonction de verification
+		$existeAbonne = verifAbonnes($nom,$pass);
+		//on verifie l'existance de l'abonne
+		if(!$existeAbonne && !$err){
+			$err = true;
+			$messageErreur .= "L'abonné n'existe pas . <br />";			
 		}
 		
 		//Si le nom et le mot de passe sont incorrect, on affiche un message d'erreur.

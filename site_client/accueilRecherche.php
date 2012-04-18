@@ -50,6 +50,7 @@ include("modele/modeleFilms.php");
 				}
 			?>		
 		</select><br />
+		<input type="reset" value="Réinitialiser la recherche" />
 		<input type="submit" value="Rechercher" />
 	</fieldset>
 </form>

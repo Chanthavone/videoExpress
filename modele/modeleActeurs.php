@@ -22,7 +22,7 @@
 		$result = mysql_fetch_assoc($res);
 		$acteurs = $result['Acteur'];
 		while($result = mysql_fetch_assoc($res)) {
-			$acteurs .= "," .$result['Acteur'] ;
+			$acteurs .= ", " .$result['Acteur'] ;
 		}
 		return $acteurs;	
 	}

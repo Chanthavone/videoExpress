@@ -19,16 +19,26 @@
 			echo '<tr><th>Titre</th><th>Genre</th><th>Réalisateur</th></tr>';
 			foreach($recherche as $search){
 				echo '<tr><td>'.$search['Titre'].'</td><td>'.$search['Genre'].'</td>
-				<td>'.$search['Realisateur'].'</td></tr>';
+				<td>'.$search['Realisateur'].'</td>';
+				//Ajout selection
+				echo '<form action="index.php?module=ajoutSelection" method="POST">
+							<input type="hidden" name="noFilm" value="'.$search["NoFilm"].'" />
+							<td><input type="Submit" value="Ajout Selection" /></td></tr>
+					</form>';
 			}
 			echo '</table>';
+			
+			//Voir selection	
+			echo '<form action="index.php?module=voirSelection" method="POST">
+				<input type="Submit" value="Voir Selection" />
+				</form>';
 		}
 		else{
-			echo '<h1>Aucun Resultat ! </h1>';
+			echo '<h3>Aucun Resultat ! </h3>';
 		}
 	}
 	else{
-		echo "impossible de faire la recherche";
+		echo "<h3>Impossible de faire la recherche</h3>";
 	}
 	//Lien de retour
 	echo '<a href="index.php?module=accueilRecherche">Retour</a>';

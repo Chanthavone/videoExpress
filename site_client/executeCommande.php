@@ -27,7 +27,7 @@
 			echo 'Commende bien effectué ! ';
 				
 			//Lien de retour
-			//echo '<a href="index.php?module=accueilRetour">Retour</a>';
+			echo '<a href="index.php?module=commande">Retour</a>';
 		}
 	}
 

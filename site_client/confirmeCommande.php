@@ -31,7 +31,7 @@
 						$check = '';
 					}
 					else{
-						$check = '';
+						$check = 'DISABLED';
 					}
 					$noExemplaire = getNoExemplaire($noFilm,$support);
 					//on affiche une ligne tableau
@@ -39,7 +39,7 @@
 						<td>'.$film['Titre'].'</td>
 						<td>'.$disponiblite.'</td>
 						<td><input type="checkbox" '.$check.' name="numFilm'.$i.'" value="'.$noFilm.'" onchange="check()"/></td>
-						<input type="hidden" name="ex'.$i.'" value="'.$noExemplaire.'" />'.$noExemplaire.'</tr>';
+						<input type="hidden" name="ex'.$i.'" value="'.$noExemplaire.'" /></tr>';
 					//on met le statut à reservee
 					//if($check == 'checked="yes"') majStatut($noFilm,$noExemplaire,'reservee');
 				}

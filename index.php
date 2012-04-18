@@ -30,7 +30,7 @@
 				else { 
 					$module = 'accueil';
 				}
-				
+
 				switch($module){
 				
 					case "accueil" : 
@@ -50,11 +50,17 @@
 					break;
 					
 					case "identificationD" : 
-						require("site_client/identificationD.php");	
+						if(isset($_COOKIE['identite']))
+							require("site_client/detenues.php");	
+						else
+							require("site_client/identificationD.php");
 					break;
 					
 					case "identificationC" : 
-						require("site_client/identificationC.php");	
+						if(isset($_COOKIE['identite']))
+							require("site_client/commande.php");
+						else
+							require("site_client/identificationC.php");	
 					break;
 					
 					case "descriptif" :
@@ -91,6 +97,22 @@
 					
 					case "retour" :
 						require("site_client/gestion/retour.php");
+					break;
+					
+					case "ajoutSelection" :
+						require("site_client/ajoutSelection.php");
+					break;
+
+					case "voirSelection" :
+						require("site_client/voirSelection.php");
+					break;
+
+					case "suppSelection" :
+						require("site_client/suppSelection.php");
+					break;
+
+					case "viderSelection" :
+						require("site_client/viderSelection.php");
 					break;
 					
 					default:

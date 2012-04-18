@@ -24,7 +24,7 @@
 		if($resultat['Statut'] == 'disponible'){
 			return 'oui';
 		}
-		$req = "SELECT Distinct Support FROM cassettes WHERE NoFilm=\"$noFilm\" AND Support<>\"$support\";";
+		$req = "SELECT Distinct Support FROM cassettes WHERE NoFilm=\"$noFilm\" AND Statut=\"disponible\";";
 		$res = db_execSQL($req,$serv);		
 		if(mysql_num_rows($res)==0)
 			return 'non';

@@ -15,6 +15,18 @@
 		return $emprunt;
 	}
 
+	/* Le nombre d'emprunt d'un abonne
+	@param[in] $codeAbonne : code de l'abonne
+	@return Le nombre d'emprunt
+	*/
+	function getNbEmprunts($codeAbonne){
+		global $serv;
+		$req = "SELECT Distinct * FROM empres WHERE CodeAbonne=\"$codeAbonne\" ;";
+		$res = db_execSQL($req,$serv);
+
+		return mysql_num_rows($res);
+	}
+	
 	/* Le code abonne de l'emprunteur
 	@param[in] $noFilm : le numero du film
 	@param[in] $noExemplaire : le numero d'exemplaire de la cassette

@@ -154,24 +154,3 @@ body {
 	font-family : Calibri;
 	font-size : 12px;
 }
-
-table{
-	width: 800px;
-	margin-top : 20px; /* Centre le tableau */
-	margin-left:auto;
-	margin-right:auto;
-	border: 3px solid #f3f7fa; /* Bordure du tableau avec effet 3D (outset) */
-	border-collapse: collapse; /* Colle les bordures entre elles */
-	text-align:center;
-}
-
-th{
-	background-color :  #f3f7fa;
-}
-
-
-td {
-	padding-left:20px;
-	padding-right:20px;
-	border: 3px solid #f3f7fa;
-}

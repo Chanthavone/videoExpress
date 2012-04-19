@@ -1,15 +1,4 @@
 ﻿<?php
-	/*Les genres 
-	@return $genres : les differents genre de films*/
-	function getGenres(){
-		global $serv;
-		$req = "SELECT Distinct Genre FROM films ORDER BY 1;";
-		$res = db_execSQL($req,$serv);
-		while($result = mysql_fetch_assoc($res)) {
-			$genres[]=$result['Genre'];
-		}
-		return $genres;
-	}
 	
 	/*Les realisateurs 
 	@return $realisateurs : les differents realisateurs de films*/
@@ -21,6 +10,18 @@
 			$realisateurs[]=$result['Realisateur'];
 		}
 		return $realisateurs;
+	}
+	
+	/*Les genres 
+	@return $genres : les differents genre de films*/
+	function getGenres(){
+		global $serv;
+		$req = "SELECT Distinct Genre FROM films ORDER BY 1;";
+		$res = db_execSQL($req,$serv);
+		while($result = mysql_fetch_assoc($res)) {
+			$genres[]=$result['Genre'];
+		}
+		return $genres;
 	}
 	
 	/*Resultat(s) de la recherche

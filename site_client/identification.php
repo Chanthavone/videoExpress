@@ -1,4 +1,4 @@
-﻿<h1>Indentification C</h1>
+﻿<h2>Identification</h2>
 
 <form action="index.php?module=connexion" method="POST">
 	<fieldset>

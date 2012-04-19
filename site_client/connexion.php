@@ -27,9 +27,11 @@
 			setcookie("identite[0]", $nom);
 			setcookie("identite[1]", $pass);
 		}
+		// On redirige vers la page d'accueil
 		header('Location: index.php?module=accueil');
 	}
 	else {
+		// On redirige vers la page d'accueil
 		header('Location: index.php?module=accueil');
 	}
 ?>

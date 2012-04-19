@@ -116,6 +116,10 @@
 							require("site_client/viderSelection.php");
 						break;
 						
+						case "connexion" :
+							require("site_client/connexion.php");
+						break;
+						
 						default:
 							require("site_client/accueil.php");	
 						break;
@@ -125,8 +129,12 @@
 			</div>
 			<div id="conteneur_gauche">
 				<div id="conteneur_identification" class="conteneur">
-					<h1>Identification ici</h1>
-					<h3>Si le mec est identifié ici y'aura un menu avec ts les options(voir commandes, détenus...)</h3>
+					<?php
+						if(isset($_COOKIE['identite']))
+							require("site_client/menuClient.php");	
+						else
+							require("site_client/identification.php");
+					?>
 				</div>
 				<div id="conteneur_panier" class="conteneur">
 					<h1>Panier ici</h1>

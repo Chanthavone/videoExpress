@@ -1,4 +1,4 @@
-﻿<div class="titre">
+<div class="titre">
 	<h2> <span>Cassettes détenues</span> </h2>
 </div>
 

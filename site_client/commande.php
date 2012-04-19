@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	//Pour avoir la fonction de verification de l'abonne
 	include("modele/modeleAbonnes.php");
 	//Pour avoir la fonction de recuperation des emprunts

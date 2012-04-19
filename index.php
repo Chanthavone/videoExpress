@@ -127,6 +127,7 @@
 					}
 
 				?>
+				<br class="blank" />
 			</div>
 			<div id="conteneur_gauche">
 				<div id="conteneur_identification" class="conteneur">
@@ -139,13 +140,17 @@
 						else
 							require("site_client/identification.php");
 					?>
+					<br class="blank" />
 				</div>
 				<div id="conteneur_panier" class="conteneur">
 					<div class="titre">
 						<h2> <span>Panier</span> </h2>
 					</div>
+					<br class="blank" />
 				</div>
+				<br class="blank" />
 			</div>
+			<br class="blank" />
 		</div>
 		<div id="footer">
 			<div id="footer_texte">

@@ -1,11 +1,12 @@
-﻿<?php
+<div class="titre">
+	<h2> <span>Recherche</span> </h2>
+</div>
+
+<?php
 //Pour avoir les fonctions retournant les genres, les realisateurs, et les acteurs
 include("modele/modeleActeurs.php");
 include("modele/modeleFilms.php");
 ?>
-<div class="titre">
-	<h2> <span>Recherche</span> </h2>
-</div>
 
 <form action="index.php?module=recherche" method="POST">
 	<fieldset>

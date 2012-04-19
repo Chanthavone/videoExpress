@@ -87,32 +87,27 @@
 	margin-right : auto;
 	margin-left : auto;
 	width : 900px;
-	height : 500px;
 }
 
 #conteneur_principal {
 	float:left;
 	width:650px;
-	height:500px;
 }
 
 #conteneur_gauche {
 	float:left;
 	width:250px;
-	height:500px;
 }
 
 #conteneur_identification {
 	margin-left:auto;
 	width:230px;
-	height:180px;
 	margin-bottom:20px;
 }
 
 #conteneur_panier {
 	margin-left:auto;
 	width:230px;
-	height:180px;
 }
 
 .conteneur {
@@ -183,3 +178,10 @@ h2 {
 	font-family : Calibri;
 	font-size : 12px;
 }
+
+.blank{   
+    font-size:0px;
+    clear:both;
+    line-height:0px;
+}
+

@@ -41,6 +41,10 @@
 			$nbCommandeRestant = 0;
 		else
 			$nbCommandeRestant = abs($nbCommande - $maxEmprunt) ;
+		
+		echo '<div class="titre">
+				<h2> <span>Commandes</span> </h2>
+			</div>';
 		//on affiche le nombre de commande que l'abonne peut passer
 		echo '<h2>Nombre de commande restant : '.$nbCommandeRestant.'</h2><br />';
 		

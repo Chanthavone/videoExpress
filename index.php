@@ -1,8 +1,4 @@
-﻿<?php
-	include("commun/librairies/outils.inc");
-?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -14,7 +10,8 @@
 	
 	<body>
 		<?php
-			banniere("VideoExpress","Chanthavone et Diallo");
+			include("commun/librairies/outils.inc");
+			banniere("","");
 		?>
 		<div id="conteneur_general">
 			<div id="conteneur_principal" class="conteneur">
@@ -120,6 +117,10 @@
 							require("site_client/connexion.php");
 						break;
 						
+						case "deconnexion" :
+							require("site_client/deconnexion.php");
+						break;
+						
 						default:
 							require("site_client/accueil.php");	
 						break;
@@ -129,15 +130,20 @@
 			</div>
 			<div id="conteneur_gauche">
 				<div id="conteneur_identification" class="conteneur">
+					<div class="titre">
+						<h2> <span> <?php echo (isset($_COOKIE['identite'])) ? 'Menu Client' : 'Identification';?> </span> </h2>
+					</div>
 					<?php
 						if(isset($_COOKIE['identite']))
-							require("site_client/menuClient.php");	
+							require("site_client/menuClient.php");
 						else
 							require("site_client/identification.php");
 					?>
 				</div>
 				<div id="conteneur_panier" class="conteneur">
-					<h1>Panier ici</h1>
+					<div class="titre">
+						<h2> <span>Panier</span> </h2>
+					</div>
 				</div>
 			</div>
 		</div>

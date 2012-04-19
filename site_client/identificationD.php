@@ -1,4 +1,6 @@
-<h1>Identification D</h1>
+<div class="titre">
+	<h2> <span>Identification D</span> </h2>
+</div>
 
 <form action="index.php?module=detenues" method="POST">
 	<fieldset>

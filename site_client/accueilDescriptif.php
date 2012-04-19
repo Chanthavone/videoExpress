@@ -1,4 +1,6 @@
-<h1>Descriptif</h1>
+<div class="titre">
+	<h2> <span>Descriptif</span> </h2>
+</div>
 
 <form action="index.php?module=descriptif" method="POST">
 	<fieldset>

@@ -1,4 +1,6 @@
-﻿<h1>Cassette detenues</h1>
+﻿<div class="titre">
+	<h2> <span>Cassettes détenues</span> </h2>
+</div>
 
 <?php
 	//Pour avoir la fonction de verification de l'abonne

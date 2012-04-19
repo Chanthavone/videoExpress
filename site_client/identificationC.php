@@ -1,4 +1,6 @@
-<h1>Indentification C</h1>
+<div class="titre">
+	<h2> <span>Identification C</span> </h2>
+</div>
 
 <form action="index.php?module=commande" method="POST">
 	<fieldset>

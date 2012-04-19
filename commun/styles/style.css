@@ -1,4 +1,4 @@
-body {
+ï»¿body {
 	background-color : #276e8a;
 	background-image : url(../images/fond.jpg);
 	background-repeat :repeat-x;
@@ -20,12 +20,13 @@ body {
 	border : none;    
 	-moz-box-shadow : 1px 1px 12px #555;   
 	-webkit-box-shadow : 1px 1px 12px #555;
-	-moz-border-radius : 15px;
+	-moz-border-radius : 5px;
 	box-shadow : 1px 1px 12px #555; 
 	/* pour IE */
 	filter:progid:DXImageTransform.Microsoft.Shadow(color=#666666, Direction=135, Strength=3); 
 	zoom: 1;
 	font-family : Arial;
+	background-image : url(../images/banniÃ¨re.jpg);
 }
 
 #titre {
@@ -45,35 +46,35 @@ body {
 	padding-left : 10px;
 	margin : auto;
 	width : 98%;
-	height:20px;
+	height:28px;
     font-weight : bold; /* on met le texte en gras */
     font-family : Arial; /* on utilise Arial, c'est plus beau ^^ */
     font-size : 12px; /* hauteur du texte : 12 pixels */
 }
 
 #menu ul {
-	padding : 0; /* pas de marge intérieure */
-    margin : 0; /* ni extérieure */
-    list-style : none; /* on supprime le style par défaut de la liste */
-    line-height : 21px; /* on définit une hauteur pour chaque élément */
+	padding : 0; /* pas de marge intÃ©rieure */
+    margin : 0; /* ni extÃ©rieure */
+    list-style : none; /* on supprime le style par dÃ©faut de la liste */
+    line-height : 28px; /* on dÃ©finit une hauteur pour chaque Ã©lÃ©ment */
     text-align : center; /* on centre le texte qui se trouve dans la liste */
 }
 
 
 #menu a { /* Contenu des listes */
-	display : block; /* on change le type d'élément, les liens deviennent des balises de type block */
-    padding-left : 47px; /* aucune marge intérieure */
+	display : block; /* on change le type d'Ã©lÃ©ment, les liens deviennent des balises de type block */
+    padding-left : 47px; /* aucune marge intÃ©rieure */
 	padding-right : 47px;
     background : #276e8a; /* couleur de fond */        
     color : #fff; /* couleur du texte */
-    text-decoration : none; /* on supprime le style par défaut des liens (la plupart du temps = souligné) */
+    text-decoration : none; /* on supprime le style par dÃ©faut des liens (la plupart du temps = soulignÃ©) */
     width : 80px; /* largeur */
 }
 
-#menu li { /* Éléments des listes */      
+#menu li { /* Ã©lÃ©ments des listes */      
     float : left; 
-    /* pour IE qui ne reconnaît pas "transparent" */
-    border-right : 1px solid #fff; /* on met une bordure blanche à droite de chaque élément */
+    /* pour IE qui ne reconnait pas "transparent" */
+    border-right : 1px solid #fff; /* on met une bordure blanche Ã  droite de chaque Ã©lÃ©ment */
 }
 
 #menu a:hover  {/* Lorsque la souris passe sur un des liens */    
@@ -82,7 +83,7 @@ body {
 }
 
 #conteneur_general {
-	margin-top:5px;
+	margin-top:15px;
 	margin-right : auto;
 	margin-left : auto;
 	width : 900px;
@@ -105,27 +106,55 @@ body {
 	margin-left:auto;
 	width:230px;
 	height:180px;
+	margin-bottom:20px;
 }
 
 #conteneur_panier {
 	margin-left:auto;
-	margin-top:10px;
 	width:230px;
 	height:180px;
 }
 
 .conteneur {
-	background:#FFFFFF;
-	min-height : 30px;
-	border: none; 
-	text-align:center;
+	background-image:url(../images/container.png);
+	background-repeat:repeat-x;
+	background-color:#FFFFFF;
+	border: none;
+	border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 	-moz-box-shadow: 1px 1px 12px #555;   
 	-webkit-box-shadow: 1px 1px 12px #555;  
 	box-shadow: 1px 1px 12px #555;
-	-moz-border-radius: 15px;	
+	-moz-border-radius: 5px;	
    filter:progid:DXImageTransform.Microsoft.Shadow(color=#666666, Direction=135, Strength=3); 
-   zoom: 1;
-   overflow: auto;
+}
+
+.titre {
+    position: relative;
+	top:-10px;
+    left: 10px;
+    width:100%;
+    height:30px;
+}
+
+.titre h2 {
+    font-family: 'Anton', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    color: #EEE;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 5px black;
+    letter-spacing: 0.05em;
+}
+
+h2 {
+	display: block;
+	font-size: 1.5em;
+	margin-top:0px;
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0.83em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	font-weight: bold;
 }
 
 #footer{

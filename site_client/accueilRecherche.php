@@ -3,7 +3,10 @@
 include("modele/modeleActeurs.php");
 include("modele/modeleFilms.php");
 ?>
-<h1>Recherche de films</h1>
+<div class="titre">
+	<h2> <span>Recherche</span> </h2>
+</div>
+
 <form action="index.php?module=recherche" method="POST">
 	<fieldset>
 		<label>Titre : </label><input type="text" name="titre" /><br />

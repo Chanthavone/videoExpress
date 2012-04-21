@@ -20,6 +20,10 @@
 			majNbCassettes($codeAbonne,'+1');
 			echo 'MAJ de NbCassette de l\'emprunteur <br />';
 			
+			//on supprime l'emprunt reservee
+			deleteEmpRes($noFilm,$noExemplaire);
+			echo 'On supprime l\'emprunt reservee <br />';
+			
 			//On insert l'emprunt de la cassette
 			insertEmpRes($noFilm,$noExemplaire,$codeAbonne);
 			echo 'On insert l\'emprunt de la cassette <br />';

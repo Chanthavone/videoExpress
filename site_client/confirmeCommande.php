@@ -8,8 +8,11 @@
 	include("modele/modeleFilms.php");
 	//Pour avoir la fonction de disponibilite d'une cassette
 	include("modele/modeleCassettes.php");
+	
+	//on verifie qu'il y'a pas de reservation valable depuis plus de 5 minutes
+	reservationValable();
 	 
-	$max = 3;
+	$max = 3; $pass = $_POST['pass'];
 	echo '<form action="index.php?module=executeCommande" method="POST">';
 		//on affiche un tableau
 		echo '<table border="1">';
@@ -21,8 +24,8 @@
 					$film = getfilm($_POST["numFilm$i"]);
 					
 					//on initialise les variables
-					$noFilm = $film['NoFilm'];$support = $_POST["support$i"];$pass = $_POST['pass'];
-					$disponiblite = getDisponibilite($noFilm,$support);
+					$noFilm = $film['NoFilm'];$support = $_POST["support$i"];
+					$disponiblite = getDisponibilite($noFilm,$support,$pass);
 					if($disponiblite == 'oui'){
 						$check = 'checked="yes"';
 					}
@@ -33,15 +36,16 @@
 					else{
 						$check = 'DISABLED';
 					}
-					$noExemplaire = getNoExemplaire($noFilm,$support);
+					$noExemplaire = getNoExemplaire($noFilm,$support,$pass);
 					//on affiche une ligne tableau
 					echo '<tr><td>'.$film['NoFilm'].'</td>
 						<td>'.$film['Titre'].'</td>
 						<td>'.$disponiblite.'</td>
 						<td><input type="checkbox" '.$check.' name="numFilm'.$i.'" value="'.$noFilm.'" onchange="check()"/></td>
 						<input type="hidden" name="ex'.$i.'" value="'.$noExemplaire.'" /></tr>';
-					//on met le statut à reservee
-					//if($check == 'checked="yes"') majStatut($noFilm,$noExemplaire,'reservee');
+					//on met le statut à reservee et on ajoute dans la table EMPRES
+					majStatut($noFilm,$noExemplaire,'reservee');
+					insertEmpRes($noFilm,$noExemplaire,$pass);
 				}
 			}
 		echo '</table>';

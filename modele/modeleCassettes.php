@@ -16,21 +16,36 @@
 	@param[in] $support : support de la cassette
 	@return 'oui' si disponible, sinon si disponible dans un autre support le support, sinon 'non' 
 	*/	
-	function getDisponibilite($noFilm,$support){
+	function getDisponibilite($noFilm,$support,$codeAbonne){
 		global $serv;
-		$req = "SELECT Distinct Statut FROM cassettes WHERE NoFilm=\"$noFilm\" AND Support=\"$support\";";
+		$req = "SELECT Distinct * FROM cassettes WHERE NoFilm=\"$noFilm\" AND Support=\"$support\";";
 		$res = db_execSQL($req,$serv);
-		$resultat = mysql_fetch_assoc($res);
-		if($resultat['Statut'] == 'disponible'){
-			return 'oui';
+		while($resultat = mysql_fetch_assoc($res)) {
+			if($resultat['Statut'] == 'reservee'){
+				if(cassetteReservee($noFilm,$resultat['NoExemplaire'],$codeAbonne))
+					return 'oui';
+			}
+			elseif($resultat['Statut'] == 'disponible'){
+				$disponible = true;
+			}
 		}
-		$req = "SELECT Distinct Support FROM cassettes WHERE NoFilm=\"$noFilm\" AND Statut=\"disponible\";";
+		if(isset($disponible))return 'oui';
+		
+		$req = "SELECT Distinct * FROM cassettes WHERE NoFilm=\"$noFilm\" AND (Statut=\"disponible\" OR Statut=\"reservee\");";
 		$res = db_execSQL($req,$serv);		
 		if(mysql_num_rows($res)==0)
 			return 'non';
 		else {
-			$resultat = mysql_fetch_assoc($res);
-			return $resultat['Support'];	
+			while($resultat = mysql_fetch_assoc($res)) {
+				if($resultat['Statut'] == 'reservee'){
+					if(cassetteReservee($noFilm,$resultat['NoExemplaire'],$codeAbonne))
+						return $resultat['Support'];
+				}
+				elseif($resultat['Statut'] == 'disponible'){
+					$support = $resultat['Support'];
+				}
+			}
+			if(isset($support))return $support;
 		}
 	}
 
@@ -39,12 +54,20 @@
 	@param[in] $support : support de la cassette
 	@return un numero exemplaire
 	*/		
-	function getNoExemplaire($noFilm,$support){
+	function getNoExemplaire($noFilm,$support,$codeAbonne){
 		global $serv;
-		$req = "SELECT Distinct NoExemplaire FROM cassettes WHERE NoFilm=\"$noFilm\" AND Support=\"$support\";";
+		$req = "SELECT Distinct * FROM cassettes WHERE NoFilm=\"$noFilm\" AND Support=\"$support\";";
 		$res = db_execSQL($req,$serv);
-		$resultat = mysql_fetch_assoc($res);
-		return $resultat['NoExemplaire'];
+		while($resultat = mysql_fetch_assoc($res)) {
+			if(cassetteReservee($noFilm,$resultat['NoExemplaire'],$codeAbonne)){
+					deleteEmpRes($noFilm,$resultat['NoExemplaire']);
+					return $resultat['NoExemplaire'];
+			}
+			else{
+				$disponible[] = $resultat['NoExemplaire'];
+			}
+		}
+		if(isset($disponible))return $disponible[0];
 	}
 
 ?>

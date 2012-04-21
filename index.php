@@ -144,9 +144,12 @@
 				</div>
 				<div id="conteneur_panier" class="conteneur">
 					<div class="titre">
-						<h2> <span>Panier</span> </h2>
+						<h2> <span> Panier ici</span> </h2>
 					</div>
-					<br class="blank" />
+					<?php
+						require("site_client/panier.htm");
+					?>
+					<br class="blank" />					
 				</div>
 				<br class="blank" />
 			</div>

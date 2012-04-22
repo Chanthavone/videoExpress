@@ -13,7 +13,7 @@
 	reservationValable();
 	 
 	$max = 3; $pass = $_POST['pass'];
-	echo '<form action="index.php?module=executeCommande" method="POST">';
+	echo '<form action="index.php?module=executeCommande" method="post">';
 		//on affiche un tableau
 		echo '<table border="1">';
 			echo '<tr><td>Numéro film</td><td>Titre</td><td>Disponibilité</td><td>Commander ?</td></tr>';
@@ -27,7 +27,7 @@
 					$noFilm = $film['NoFilm'];$support = $_POST["support$i"];
 					$disponiblite = getDisponibilite($noFilm,$support,$pass);
 					if($disponiblite == 'oui'){
-						$check = 'checked="yes"';
+						$check = 'checked="checked"';
 					}
 					elseif($disponiblite <> 'non'){ 
 						$support = $disponiblite;
@@ -41,8 +41,8 @@
 					echo '<tr><td>'.$film['NoFilm'].'</td>
 						<td>'.$film['Titre'].'</td>
 						<td>'.$disponiblite.'</td>
-						<td><input type="checkbox" '.$check.' name="numFilm'.$i.'" value="'.$noFilm.'" onchange="check()"/></td>
-						<input type="hidden" name="ex'.$i.'" value="'.$noExemplaire.'" /></tr>';
+						<td><input type="checkbox" '.$check.' name="numFilm'.$i.'" value="'.$noFilm.'" onchange="check()"/>
+						<input type="hidden" name="ex'.$i.'" value="'.$noExemplaire.'" /></td></tr>';
 					//on met le statut à reservee et on ajoute dans la table EMPRES
 					majStatut($noFilm,$noExemplaire,'reservee');
 					insertEmpRes($noFilm,$noExemplaire,$pass);
@@ -53,7 +53,7 @@
 		echo '<input type="submit" id="commander" value="Commander"/><label id="aucun_film"></label>';
 	echo '</form>';
 	//on affiche le second formulaire
-	echo '<form action="index.php?module=commande" method="POST">
+	echo '<form action="index.php?module=commande" method="post">
 		<input type="hidden" name="pass" value="'.$pass.'" />
 		<input type="submit" value="Revoir le choix"/>
 		</form>';

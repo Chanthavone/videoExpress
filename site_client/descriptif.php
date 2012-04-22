@@ -29,13 +29,13 @@
 				';
 			echo '</table>';
 			//Ajout selection
-			echo '<form action="index.php?module=ajoutSelection" method="POST">
+			echo '<form action="index.php?module=ajoutSelection" method="post">
 				<input type="hidden" name="noFilm" value="'.$film["NoFilm"].'" />
-				<input type="Submit" value="Ajout Selection" />
+				<input type="submit" value="Ajout Selection" />
 				</form>';
 			//Voir selection	
-			echo '<form action="index.php?module=voirSelection" method="POST">
-				<input type="Submit" value="Voir Selection" />
+			echo '<form action="index.php?module=voirSelection" method="post">
+				<input type="submit" value="Voir Selection" />
 				</form>';
 		}
 		else{

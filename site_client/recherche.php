@@ -21,16 +21,16 @@
 				echo '<tr><td>'.$search['Titre'].'</td><td>'.$search['Genre'].'</td>
 				<td>'.$search['Realisateur'].'</td>';
 				//Ajout selection
-				echo '<form action="index.php?module=ajoutSelection" method="POST">
+				echo '<td><form action="index.php?module=ajoutSelection" method="post">
 							<input type="hidden" name="noFilm" value="'.$search["NoFilm"].'" />
-							<td><input type="Submit" value="Ajout Selection" /></td></tr>
-					</form>';
+							<input type="submit" value="Ajout Selection" />
+					</form></td></tr>';
 			}
 			echo '</table>';
 			
 			//Voir selection	
-			echo '<form action="index.php?module=voirSelection" method="POST">
-				<input type="Submit" value="Voir Selection" />
+			echo '<form action="index.php?module=voirSelection" method="post">
+				<input type="submit" value="Voir Selection" />
 				</form>';
 		}
 		else{

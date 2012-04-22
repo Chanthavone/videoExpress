@@ -8,7 +8,7 @@
 		echo '<h3> Aucun film séléctioné </h3>';
 	}
 	else{
-		echo '<form action="index.php?module=suppSelection" method="POST">';
+		echo '<form action="index.php?module=suppSelection" method="post">';
 			echo '<table>';
 				echo '<tr><th>Numéro de film</th><th>Titre</th><th>Selection</th></tr>';
 				for($i = 1 ; $i <= $_COOKIE['selection'][0] ; ++$i){
@@ -16,10 +16,10 @@
 					<td><input type="checkbox" name="case'.$i.'" /></td></tr>';
 				}
 			echo '</table>';
-			echo '<input type="Submit" value="Supprimer" />';
+			echo '<input type="submit" value="Supprimer" />';
 		echo '</form>';
-		echo '<form action="index.php?module=viderSelection" method="POST">
-			<input type="Submit" value="ViderSelection" />
+		echo '<form action="index.php?module=viderSelection" method="post">
+			<input type="submit" value="ViderSelection" />
 			</form>';
 	}
 

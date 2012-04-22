@@ -22,7 +22,7 @@
 		echo '<h3>Aucun film séléctionné</h3>';
 	}
 	//Voir selection	
-	echo '<form action="index.php?module=voirSelection" method="POST">
-	<input type="Submit" value="Voir Selection" />
+	echo '<form action="index.php?module=voirSelection" method="post">
+	<input type="submit" value="Voir Selection" />
 	</form>';	
 ?>

@@ -50,7 +50,7 @@
 		
 		//si le nombre commande restant est positif on affiche un tableau 
 		if($nbCommandeRestant > 0 ){
-			echo '<form action="index.php?module=confirmeCommande" method="POST">';
+			echo '<form action="index.php?module=confirmeCommande" method="post">';
 				echo '<fieldset>';
 					echo '<table border="1">';
 					for($i = 1 ; $i <= $nbCommandeRestant ; ++$i){

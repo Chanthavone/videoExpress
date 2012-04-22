@@ -8,7 +8,7 @@ include("modele/modeleActeurs.php");
 include("modele/modeleFilms.php");
 ?>
 
-<form action="index.php?module=recherche" method="POST">
+<form action="index.php?module=recherche" method="post">
 	<fieldset>
 		<label>Titre : </label><input type="text" name="titre" /><br />
 		<label>Support : </label>

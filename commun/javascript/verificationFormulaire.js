@@ -20,7 +20,6 @@ function accueilDescriptif(){
 			document.getElementById('numFilm_js').innerHTML="<img border='0' src='commun/images/error.gif' /> Le numéro de film doit être composé de chiffre";
 			erreur = true;		
 		}
-
 	}
 	
 	if(erreur == true) {	

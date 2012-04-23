@@ -8,7 +8,8 @@
 	//si le cookie n'est pas defini ou nbfilms = 0
 	if(isset($_COOKIE['selection']) && $_COOKIE['selection'][0]!=0){
 			for($i = 1 ; $i <= $_COOKIE['selection'][0] ; ++$i){
-				echo '<a href="#">'.getTitre($_COOKIE['selection'][$i]).'</a><br />';
+				$numFilm = $_COOKIE['selection'][$i];
+				echo '<a href="index.php?module=descriptif&numFilm='.$numFilm.'">'.getTitre($numFilm).'</a><br />';
 			}
 	}
 	

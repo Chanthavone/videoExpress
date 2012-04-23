@@ -1,3 +1,5 @@
+<!-- Pour avoir la fonction de verification en javascript -->
+<script type="text/javascript" src="commun/javascript/verificationFormulaire.js"></script>
 <?php
 	//Pour avoir la fonction de verification de l'abonne
 	include("modele/modeleAbonnes.php");
@@ -50,18 +52,18 @@
 		
 		//si le nombre commande restant est positif on affiche un tableau 
 		if($nbCommandeRestant > 0 ){
-			echo '<form action="index.php?module=confirmeCommande" method="post">';
+			echo '<form id="formCommande" action="index.php?module=confirmeCommande" method="post">';
 				echo '<fieldset>';
-					echo '<table border="1">';
+					echo '<table>';
 					for($i = 1 ; $i <= $nbCommandeRestant ; ++$i){
-						echo '<tr><td><label>NumFilm'.$i.' : </label><input type="text" name="numFilm'.$i.'" /></td>
+						echo '<tr><td><label>NumFilm'.$i.' : </label><input type="text" onblur="purge(this)" name="numFilm'.$i.'" /></td>
 							<td><label>Support'.$i.' : </label><input type="radio" name="support'.$i.'" value="dvd" /><label>DVD</label>
-							<input type="radio" name="support'.$i.'" value="vhs" /><label>VHS</label>
-							</td></tr>';
+							<input type="radio" name="support'.$i.'" value="vhs" /><label>VHS</label></td>
+							<td><label id="numFilm'.$i.'_js"></label></td></tr>';
 					}
 					echo '</table>';
 					echo '<input type="hidden" name="pass" value="'.$pass.'" />';
-					echo '<input type="submit" value="Commander" />';
+					echo '<input type="submit" onClick="commande()" value="Commander" />';
 				echo '</fieldset>';
 			echo '</form>';
 		}

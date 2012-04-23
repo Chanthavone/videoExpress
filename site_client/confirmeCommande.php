@@ -19,7 +19,7 @@
 			echo '<tr><td>Numéro film</td><td>Titre</td><td>Disponibilité</td><td>Commander ?</td></tr>';
 			//pour chaque commande
 			for($i = 1 ; $i <= $max ; ++$i){
-				if(isset($_POST['support'.$i.''])){
+				if(isset($_POST['support'.$i.'']) && $_POST["numFilm$i"] <> "" ){
 					//on recupere le film commande
 					$film = getfilm($_POST["numFilm$i"]);
 					

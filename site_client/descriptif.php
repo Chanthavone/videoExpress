@@ -1,4 +1,7 @@
-﻿<?php
+﻿<div class="titre">
+	<h2> <span>Descriptif du film</span> </h2>
+</div>
+<?php
 	//Pour avoir la fonction de recherche
 	include("modele/modeleFilms.php");
 	//pour avoir les acteurs de film
@@ -14,7 +17,6 @@
 		
 		//Si on a trouve le film, on affiche ces caracteristiques
 		if(count($film) > 1){
-			echo '<h1>Descriptif du film</h1>';
 			echo '<table border="1">';
 				echo '<tr><td>Numéro du film </td><td>'.$film["NoFilm"].'</td></tr>
 					<tr><td>Titre </td><td>'.$film["Titre"].'</td></tr>

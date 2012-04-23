@@ -16,7 +16,7 @@
 		if(count($recherche) > 0){
 			echo '<h1>Resultat de la recherche ('.count($recherche).') </h1>';
 			echo '<table border="1">';
-			echo '<tr><th>Titre</th><th>Genre</th><th>Réalisateur</th></tr>';
+			echo '<tr><th>Titre</th><th>Genre</th><th>Réalisateur</th><th>Ajout au panier</th></tr>';
 			foreach($recherche as $search){
 				echo '<tr><td>'.$search['Titre'].'</td><td>'.$search['Genre'].'</td>
 				<td>'.$search['Realisateur'].'</td>';

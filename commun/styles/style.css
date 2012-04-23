@@ -203,6 +203,11 @@ h2 {
 	font-size:12px;
 }
 
+#titre_rech {
+	color:#666666;
+	margin-left:10px;
+}
+
 #formIdentification {
 	margin-left:15px;
 }
@@ -256,4 +261,87 @@ h2 {
 	width:650px;
 	height:220px;
     display:block;
+}
+
+#liste_film {
+	margin:auto;
+	width:94%;;
+}
+
+#bloc_film {
+	width:100%;
+	height:120px;
+}
+
+#bloc_film_image {
+	float:left;
+	width:110px;
+	height:120px;
+}
+
+#bloc_film_descriptif {
+	float:left;
+	display:block;
+	height:120px;
+	width:60%;
+}
+#bloc_film_selection {
+	float:left;
+	display:block;
+	height:120px;
+	width:120px;
+}
+
+#bloc_film_selection_ajout {
+	margin-top:45px;
+}
+
+#bloc_film_descriptif h4 {
+	margin-top:0px;
+	margin-bottom:5px;
+	font-style:italic;
+	color:#6589D6;
+}
+
+#descriptif_film {
+	width:100%;
+	height:400px;
+}
+
+#descriptif_film_image {
+	margin-left:10px;
+	float:left;
+	width:160px;
+	height:200px;
+}
+
+#descriptif_film_descriptif {
+	float:left;
+	display:block;
+	width:55%;
+	margin-bottom:10px;
+}
+
+#descriptif_film_ajout {
+	float:left;
+	width:17%;
+}
+
+#descriptif_film_resume {
+	margin-left:10px;
+	float:left;
+	display:block;
+	width:100%;
+}
+
+#descriptif_film_descriptif h3 {
+	margin-top:0px;
+	margin-bottom:5px;
+	font-style:italic;
+	color:#6589D6;
+}
+
+.intitule {
+	display:inline;
+	color:#888888;
 }

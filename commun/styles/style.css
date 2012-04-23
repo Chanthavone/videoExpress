@@ -2,6 +2,7 @@
 	background-color : #276e8a;
 	background-image : url(../images/fond.jpg);
 	background-repeat :repeat-x;
+	font-family : Arial;
 }
 
 #header {
@@ -26,7 +27,7 @@
 	filter:progid:DXImageTransform.Microsoft.Shadow(color=#666666, Direction=135, Strength=3); 
 	zoom: 1;
 	font-family : Arial;
-	background-image : url(../images/bannière.jpg);
+	background-image : url(../images/bannière2.jpg);
 }
 
 #titre {
@@ -46,7 +47,7 @@
 	padding-left : 10px;
 	margin : auto;
 	width : 98%;
-	height:28px;
+	height:30px;
     font-weight : bold; /* on met le texte en gras */
     font-family : Arial; /* on utilise Arial, c'est plus beau ^^ */
     font-size : 12px; /* hauteur du texte : 12 pixels */
@@ -56,7 +57,7 @@
 	padding : 0; /* pas de marge intérieure */
     margin : 0; /* ni extérieure */
     list-style : none; /* on supprime le style par défaut de la liste */
-    line-height : 28px; /* on définit une hauteur pour chaque élément */
+    line-height : 30px; /* on définit une hauteur pour chaque élément */
     text-align : center; /* on centre le texte qui se trouve dans la liste */
 }
 
@@ -65,8 +66,8 @@
 	display : block; /* on change le type d'élément, les liens deviennent des balises de type block */
     padding-left : 47px; /* aucune marge intérieure */
 	padding-right : 47px;
-    background : #276e8a; /* couleur de fond */        
-    color : #fff; /* couleur du texte */
+    background-image : url(../images/bouton-menu.png);
+    color : #666666; /* couleur du texte */
     text-decoration : none; /* on supprime le style par défaut des liens (la plupart du temps = souligné) */
     width : 80px; /* largeur */
 }
@@ -79,7 +80,7 @@
 
 #menu a:hover  {/* Lorsque la souris passe sur un des liens */    
     color: #276e8a; /* On passe le texte en noir... */
-    background: #fff; /* ... et au contraire, le fond en blanc */
+    background-image: url(../images/bouton-menu2.png); /* ... et au contraire, le fond en blanc */
 }
 
 #conteneur_general {
@@ -89,7 +90,7 @@
 	width : 900px;
 }
 
-#conteneur_principal {
+#conteneur_principal, #conteneur_droite {
 	float:left;
 	width:650px;
 }
@@ -99,19 +100,22 @@
 	width:250px;
 }
 
-#conteneur_identification {
+#conteneur_identification, #conteneur_panier {
 	margin-left:auto;
 	width:230px;
 	margin-bottom:20px;
 }
 
-#conteneur_panier {
+#conteneur_pub {
 	margin-left:auto;
 	width:230px;
+	height:440px;
+	background-image : url(../images/pub.jpg);
+	background-repeat : no-repeat;
 }
 
 .conteneur {
-	background-image:url(../images/container.png);
+	background-image:url(../images/container2.png);
 	background-repeat:repeat-x;
 	background-color:#FFFFFF;
 	border: none;
@@ -121,10 +125,10 @@
 	-webkit-box-shadow: 1px 1px 12px #555;  
 	box-shadow: 1px 1px 12px #555;
 	-moz-border-radius: 5px;	
-   filter:progid:DXImageTransform.Microsoft.Shadow(color=#666666, Direction=135, Strength=3); 
+   filter:progid:DXImageTransform.Microsoft.Shadow(color=#666666, Direction=135, Strength=3);
 }
 
-.titre {
+.titre, .titre2 {
     position: relative;
 	top:-10px;
     left: 10px;
@@ -139,6 +143,14 @@
     text-transform: uppercase;
     text-shadow: 1px 1px 5px black;
     letter-spacing: 0.05em;
+}
+
+.titre2 h2 {
+    font-family: 'Anton', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    color: #EEE;
+    text-shadow: 1px 1px 5px black;
+    letter-spacing: 0.03em;
 }
 
 h2 {
@@ -191,3 +203,57 @@ h2 {
 	font-size:12px;
 }
 
+#formIdentification {
+	margin-left:15px;
+}
+
+#bouton_id {
+	margin-left:100px;
+	margin-top:5px;
+}
+
+.bouton {
+	display: block;
+	height: 25px; 
+	background-image : url(../images/bouton-menu.png);
+}
+
+.label_id {
+	display: block;
+	width: 80px;
+	float: left;
+}
+
+#contenu_panier {
+	width:90%;
+	margin:auto;
+}
+
+#option_panier {
+	width:90%;
+	margin:auto;
+}
+
+#option_panier_gauche {
+	float:left;
+	width:50%;
+	font-size:10px;
+}
+
+#slides {
+    height:220px;
+    width:650px;
+    float:left;
+	margin-bottom:20px;
+}
+
+.slides_container {
+	width:650px;
+	display:none;
+}
+
+.slides_container div {
+	width:650px;
+	height:220px;
+    display:block;
+}

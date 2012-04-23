@@ -3,7 +3,7 @@
 	require_once("modele/modeleFilms.php");
 	
 	echo '<div id="contenu_panier">';
-	echo 'Vos articles ajoutés : </br>';
+	echo 'Vos articles ajoutÃ©s : </br>';
 	
 	//si le cookie n'est pas defini ou nbfilms = 0
 	if(isset($_COOKIE['selection']) && $_COOKIE['selection'][0]!=0){
@@ -19,8 +19,8 @@
 <br />
 <div id="option_panier">
 	<div id="option_panier_gauche">
-		<!-- Lien du détail du panier -->
-		<a href="index.php?module=voirSelection">Détails du panier</a><br />
+		<!-- Lien du dÃ©tail du panier -->
+		<a href="index.php?module=voirSelection">DÃ©tails du panier</a><br />
 		<!-- Lien vider selection -->
 		<a href="index.php?module=viderSelection">Vider le panier</a><br />
 	</div>

@@ -9,7 +9,14 @@
 	for($i = 1 ; $i <= 3 ; ++$i){
 		if(isset($_POST['numFilm'.$i.''])){
 			//on initialise les variables
-			$noFilm = $_POST['numFilm'.$i.''] ; $noExemplaire = $_POST['ex'.$i.'']; $codeAbonne = $_POST['pass'];
+			$noFilm = $_POST['numFilm'.$i.''] ; $codeAbonne = $_POST['pass'];
+			//Soit on est passé par le formulaire de commande ou de panier
+			if(isset($_POST['ex'.$i.'']))
+				$noExemplaire = $_POST['ex'.$i.''];
+			else{
+				$support = $_POST["support$i"];
+				$noExemplaire = getNoExemplaire($noFilm,$support,$codeAbonne);
+			}
 			echo 'On initialise les variables <br />';
 			
 			//MAJ du statut de la cassette

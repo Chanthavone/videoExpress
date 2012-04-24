@@ -129,6 +129,14 @@
 								require("site_client/deconnexion.php");
 							break;
 							
+							case "confirmePanier" :
+								require("site_client/confirmePanier.php");
+							break;
+
+							case "suppCookie" :
+								require("site_client/suppCookie.php");
+							break;
+							
 							default:
 								require("site_client/accueil.php");	
 							break;

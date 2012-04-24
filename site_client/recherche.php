@@ -20,26 +20,26 @@
 		if(count($recherche) > 0){
 			echo '<h2 id="titre_rech">Resultat de la recherche ('.count($recherche).') </h2>';
 			echo '<div id="liste_film">';
-			foreach($recherche as $search){
-				echo '<div id="bloc_film">';
-					echo '<div id="bloc_film_image">';
-						echo '<img src="commun/images/interrogation.png" height="120" width="90" />';
-					echo '</div>';
-					echo '<div id="bloc_film_descriptif">';
-						echo '<h4>'.$search['Titre'].'</h4><br />
-							  Genre : <em>'.$search['Genre'].'</em><br />
-							  Réalisateur : <em>'.$search['Realisateur'].'</em><br />';
-					echo '</div>';
-					//Ajout selection
-					echo '<div id="bloc_film_selection">';
-						echo '<div id="bloc_film_selection_ajout">';
-						echo '<td><form action="index.php?module=ajoutSelection" method="post">
-									<input type="hidden" name="noFilm" value="'.$search["NoFilm"].'" />
-									<input type="submit" class="bouton" value="Ajouter au panier" />
-							</form></td></tr>';
-				echo '</div></div></div>';
-				echo '<hr>';
-			}
+				foreach($recherche as $search){
+					echo '<div id="bloc_film">';
+						echo '<div id="bloc_film_image">';
+							echo '<img src="commun/images/interrogation.png" height="120" width="90" />';
+						echo '</div>';
+						echo '<div id="bloc_film_descriptif">';
+							echo '<h4>'.$search['Titre'].'</h4><br />
+								  Genre : <em>'.$search['Genre'].'</em><br />
+								  Réalisateur : <em>'.$search['Realisateur'].'</em><br />';
+						echo '</div>';
+						//Ajout selection
+						echo '<div id="bloc_film_selection">';
+							echo '<div id="bloc_film_selection_ajout">';
+							echo '<td><form action="index.php?module=ajoutSelection" method="post">
+										<input type="hidden" name="noFilm" value="'.$search["NoFilm"].'" />
+										<input type="submit" class="bouton" value="Ajouter au panier" />
+								</form></td></tr>';
+					echo '</div></div></div>';
+					echo '<hr>';
+				}
 			echo '</div>';
 			
 			//Voir selection	

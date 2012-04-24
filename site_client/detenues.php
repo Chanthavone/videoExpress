@@ -39,16 +39,23 @@
 		$emprunts = getEmprunts($pass);
 		//si il en a on affiche, sinon on affiche un message
 		if(getNbEmprunts($pass)>0){
-			echo '<table border="1">';
-			foreach($emprunts as $emprunt){
-				echo '<tr><td>Numéro d\'exemplaire : '.$emprunt['NoExemplaire'].'<br />
-					Numéro de film : '.$emprunt['NoFilm'].'<br />
-					Titre : '.getTitre($emprunt['NoFilm']).'<br />
-					Réalisateur : '.getRealisateur($emprunt['NoFilm']).'<br />
-					Date d\'emprunt : '.$emprunt['d'].'<br />
-					</td></tr>';
-			}
-			echo '</table>';
+			echo '<div id="liste_film">';
+				foreach($emprunts as $emprunt){
+					echo '<div id="bloc_film">';
+						echo '<div id="bloc_film_image">';
+							echo '<img src="commun/images/interrogation.png" height="120" width="90" />';
+						echo '</div>';
+						echo '<div id="bloc_film_descriptif">';
+							echo '<h4>'.getTitre($emprunt['NoFilm']).'</h4><br />
+								Réalisateur : <em>'.getRealisateur($emprunt['NoFilm']).'</em><br />
+								Date d\'emprunt : <em>'.$emprunt['d'].'</em><br />
+								Numéro d\'exemplaire : <em>'.$emprunt['NoExemplaire'].'</em><br />
+								Numéro de film : <em>'.$emprunt['NoFilm'].'</em><br />';							
+						echo '</div>';
+					echo '</div>';
+					echo '<hr />';
+				}
+			echo '</div>';
 		}
 		else{
 			echo 'Aucun Emprunt ';

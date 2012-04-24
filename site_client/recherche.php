@@ -1,4 +1,8 @@
-﻿<?php
+<div class="titre">
+	<h2> <span>Recherche</span> </h2>
+</div>
+
+<?php
 	//Pour avoir la fonction de recherche
 	include("modele/modeleFilms.php");
 	
@@ -14,23 +18,33 @@
 		
 		//Si on a des resultats on affiche, sinon on affiche un message d'erreur
 		if(count($recherche) > 0){
-			echo '<h1>Resultat de la recherche ('.count($recherche).') </h1>';
-			echo '<table border="1">';
-			echo '<tr><th>Titre</th><th>Genre</th><th>Réalisateur</th><th>Ajout au panier</th></tr>';
+			echo '<h2 id="titre_rech">Resultat de la recherche ('.count($recherche).') </h2>';
+			echo '<div id="liste_film">';
 			foreach($recherche as $search){
-				echo '<tr><td>'.$search['Titre'].'</td><td>'.$search['Genre'].'</td>
-				<td>'.$search['Realisateur'].'</td>';
-				//Ajout selection
-				echo '<td><form action="index.php?module=ajoutSelection" method="post">
-							<input type="hidden" name="noFilm" value="'.$search["NoFilm"].'" />
-							<input type="submit" value="Ajout Selection" />
-					</form></td></tr>';
+				echo '<div id="bloc_film">';
+					echo '<div id="bloc_film_image">';
+						echo '<img src="commun/images/interrogation.png" height="120" width="90" />';
+					echo '</div>';
+					echo '<div id="bloc_film_descriptif">';
+						echo '<h4>'.$search['Titre'].'</h4><br />
+							  Genre : <em>'.$search['Genre'].'</em><br />
+							  Réalisateur : <em>'.$search['Realisateur'].'</em><br />';
+					echo '</div>';
+					//Ajout selection
+					echo '<div id="bloc_film_selection">';
+						echo '<div id="bloc_film_selection_ajout">';
+						echo '<td><form action="index.php?module=ajoutSelection" method="post">
+									<input type="hidden" name="noFilm" value="'.$search["NoFilm"].'" />
+									<input type="submit" class="bouton" value="Ajouter au panier" />
+							</form></td></tr>';
+				echo '</div></div></div>';
+				echo '<hr>';
 			}
-			echo '</table>';
+			echo '</div>';
 			
 			//Voir selection	
 			echo '<form action="index.php?module=voirSelection" method="post">
-				<input type="submit" value="Voir Selection" />
+				<input type="submit" class="bouton" value="Voir Selection" />
 				</form>';
 		}
 		else{

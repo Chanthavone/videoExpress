@@ -15,7 +15,7 @@ include("modele/modeleFilms.php");
 </div>
 
 <form action="index.php?module=recherche" method="post">
-	<fieldset id="form_recherche">
+	<fieldset class="formulaire">
 		<legend>Recherche avancée</legend>
 		<div class="type_recherche">			
 			<h3>Recherche par titre : </h3><br />

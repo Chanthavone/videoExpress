@@ -352,16 +352,17 @@ h2 {
 	margin-bottom:10px;
 }
 
-#form_recherche {
+.formulaire {
 	width:90%;
 	margin:auto;
 	border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 	border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+	margin-bottom:10px;
 }
 
-#form_recherche legend {
+.formulaire legend {
 	font-style:italic;
 	color:#4D4D4D;
 }
@@ -408,4 +409,10 @@ h2 {
 
 .petit_champ {
 	width:140px;
+}
+
+#form_descriptif_submit {
+	margin-top:10px;
+	margin-left:207px;
+	width:100px;
 }

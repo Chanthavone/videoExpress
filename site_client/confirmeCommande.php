@@ -1,6 +1,8 @@
-﻿<h1>Confirmation commande</h1>
 <!-- Pour avoir la fonction check en javascript -->
 <script type="text/javascript" src="commun/javascript/confirmecommande.js"></script>
+<div class="titre">
+	<h2> <span>Confirmation commande</span> </h2>
+</div>
 <?php
 	//Pour avoir la fonction de recuperation des emprunts
 	include("modele/modeleEmpres.php");

@@ -1,4 +1,6 @@
-﻿<h1>Voir séléction</h1>
+<div class='titre'>
+	<h2> <span>Détails du panier</span> </h2>
+</div>
 <?php
 	//Pour avoir la fonction de recherche de titre
 	include("modele/modeleFilms.php");

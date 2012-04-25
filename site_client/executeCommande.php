@@ -1,4 +1,7 @@
-﻿<?php
+<div class="titre">
+	<h2> <span>Exécution de la commande</span> </h2>
+</div>
+<?php
 	//Pour avoir la fonction de Maj de Nombre de cassette d'un abonne
 	include("modele/modeleAbonnes.php");
 	//Pour avoir la fonction de MAJ des cassettes

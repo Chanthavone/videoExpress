@@ -197,7 +197,7 @@ h2 {
     line-height:0px;
 }
 
-#pass_js,#nom_js,#numFilm_js , #numFilm1_js , #numFilm2_js , #numFilm3_js , #numExemplaire_js {
+#pass_js,#nom_js,#numFilm_js , #numFilm1_js , #numFilm2_js , #numFilm3_js , #numExemplaire_js ,#message_js {
 	margin-left:15px;
 	color:	#FF0000;
 	font-size:12px;

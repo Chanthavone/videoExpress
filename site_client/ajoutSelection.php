@@ -1,4 +1,6 @@
-﻿<h1>Ajout séléction</h1>
+<div class="titre">
+	<h2> <span>Ajout séléction </span> </h2>
+</div>
 <?php
 	$unMois = 2629800;
 	if(isset($_COOKIE['selection'])){

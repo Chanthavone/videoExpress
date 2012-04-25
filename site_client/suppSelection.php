@@ -1,4 +1,6 @@
-﻿<h1>Supprimer séléction </h1>
+<div class="titre">
+	<h2> <span>Supprimer séléction </span> </h2>
+</div>
 <?php
 	
 	if(count($_POST)>0){

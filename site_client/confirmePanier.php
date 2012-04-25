@@ -1,4 +1,6 @@
-﻿<h1>Confirmation du panier</h1>
+<div class="titre">
+	<h2> <span>Confirmation du panier</span> </h2>
+</div>
 <?php
 	//Pour avoir la fonction de recuperation des emprunts
 	include("modele/modeleEmpres.php");

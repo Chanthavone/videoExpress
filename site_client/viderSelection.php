@@ -1,4 +1,6 @@
-﻿<h1>Vider séléction </h1>
+<div class="titre">
+	<h2> <span>Vider séléction </span> </h2>
+</div>
 <?php
 	$unMois = 2629800;
 	//met à 0 le nombre de films stocké en selection[0]

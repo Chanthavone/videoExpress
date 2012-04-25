@@ -9,7 +9,7 @@ function purge(Texte) {
 
 function accueilDescriptif(){	
 	var numFilm = document.getElementById('numFilm');
-	var myForm = document.getElementById('formDescriptif')
+	var myForm = document.getElementById('formDescriptif');
 	var erreur = false;
 	if(numFilm.value == ""){
 		document.getElementById('numFilm_js').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrer un numéro de film";
@@ -32,7 +32,7 @@ function accueilDescriptif(){
 
 function identification(){
 	var input = document.getElementsByTagName('input');
-	var myForm = document.getElementById('formIdentification')
+	var myForm = document.getElementById('formIdentification');
 	var erreur = false;
 	for (var i = 0, c = input.length; i < c; i++) {
 		if(input[i].name == "nom" ){
@@ -140,7 +140,7 @@ function commande(){
 function accueilRetour(){
 	var numFilm = document.getElementById('numFilm');
 	var numExemplaire = document.getElementById('numExemplaire');
-	var myForm = document.getElementById('formRetour')
+	var myForm = document.getElementById('formRetour');
 	var erreur = false;
 
 	if(numFilm.value == ""){
@@ -169,6 +169,17 @@ function accueilRetour(){
 	else
 		document.getElementById('numExemplaire_js').innerHTML="<img border='0' src='commun/images/ok.gif' />";
 		
+	if(erreur == true) {	
+		myForm.addEventListener('submit', function(e) { e.preventDefault(); }, true);
+	}
+	else {
+		myForm.submit();
+	}
+}
+
+function panier(erreur){
+
+	var myForm = document.getElementById('formPanier');
 	if(erreur == true) {	
 		myForm.addEventListener('submit', function(e) { e.preventDefault(); }, true);
 	}

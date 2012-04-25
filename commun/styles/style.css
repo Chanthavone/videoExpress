@@ -345,3 +345,67 @@ h2 {
 	display:inline;
 	color:#888888;
 }
+
+#intro {
+	width:95%;
+	margin:auto;
+	margin-bottom:10px;
+}
+
+#form_recherche {
+	width:90%;
+	margin:auto;
+	border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#form_recherche legend {
+	font-style:italic;
+	color:#4D4D4D;
+}
+
+.type_recherche {
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+.type_recherche h3{
+	margin-top:0px;
+	margin-bottom:5px;
+	color:#6589D6;
+	font-size:17px;
+}
+
+.label_recherche {
+	display: block;
+	width: 150px;
+	float: left;
+	color:#4D4D4D;
+}
+
+#form_recherche_boutons {
+	width:400px;
+	height:50px;
+	margin:auto;
+}
+
+#form_recherche_boutons #recherche_reset_bouton {
+	margin-top:10px;
+	float:left;
+}
+
+#form_recherche_boutons #recherche_submit_bouton {
+	margin-top:10px;
+	float:right;
+	width:150px;
+}
+
+.grand_champ {
+	width:200px;
+}
+
+.petit_champ {
+	width:140px;
+}

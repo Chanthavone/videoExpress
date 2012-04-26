@@ -30,7 +30,7 @@
 			}
 		echo '</table>';
 		echo '<input type="hidden" name="pass" value="'.$pass.'" />';
-		echo '<input type="submit" id="commander" value="Commander"/><label id="aucun_film"></label>';
+		echo '<input type="submit" name="panier" id="commander" value="Commander"/><label id="aucun_film"></label>';
 	echo '</form>';
 
 ?>

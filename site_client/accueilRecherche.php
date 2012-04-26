@@ -78,7 +78,7 @@ include("modele/modeleFilms.php");
 		
 		<div id="form_recherche_boutons">
 			<input type="reset" class="bouton" id="recherche_reset_bouton" value="Réinitialiser la recherche" />
-			<input type="submit" class="bouton" id="recherche_submit_bouton" value="Rechercher" />
+			<input type="submit" class="bouton" id="recherche_submit_bouton" name="rechercher" value="Rechercher" />
 		</div>
 	</fieldset>
 </form>

@@ -416,3 +416,17 @@ h2 {
 	margin-left:207px;
 	width:100px;
 }
+
+#liens{
+	text-align:center;
+	font-size:medium;
+	margin-bottom:10px;
+	
+}
+
+#page{
+	text-decoration:none;
+	font-weight:bold;
+	color:black;
+	margin-left : 10px;
+}

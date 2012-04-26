@@ -33,8 +33,7 @@
 	@param[in] $acteur : Le nom d'un acteur
 	@return Le(s) resultat(s) de la recherche
 	*/
-	
-	function rechercheFilm($titre,$support,$disponibilite,$genre,$realisateur,$acteur){
+	function rechercheFilm($titre,$support,$disponibilite,$genre,$realisateur,$acteur,$page,$nombre){
 		global $serv;
 		// A OPTIMISER
 		$req = "SELECT DISTINCT * FROM films WHERE ";
@@ -64,13 +63,15 @@
 			$And = "And";
 		}
 		if($And == "")
-			$req ="SELECT DISTINCT * FROM films ORDER BY Titre;";
+			$req = "SELECT DISTINCT * FROM films ORDER BY Titre ";
 		//echo $req ."<br />";
-		
+		if($nombre <> 0){
+			$req .= "LIMIT $page ,$nombre";
+		}
+
 		$res = db_execSQL($req,$serv);
 		
 		$recherche = array();
-		//echo mysql_num_rows($res);
 		while($result = mysql_fetch_assoc($res)) {
 			$recherche[] = $result;
 		}

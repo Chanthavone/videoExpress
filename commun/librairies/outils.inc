@@ -60,4 +60,57 @@
 			}
 			return $res;
 	}
+	
+	/* systeme de pagination 1 2 3 4
+		@param[in] 	$nb : Le nombre total de page a afficher
+		@param[in] 	$total : Le nombre total de resultat
+		@param[in] 	$donnée_a_transmettre : Les données à transmettre dans l'URL
+		@return 	$pagination : Les paginations
+	*/
+	function Pagination($nb,$total,$donnée_a_transmettre) {
+			$nbpages=ceil($total/$nb);
+			$numeroPages = 1;
+			$compteurPages = 1;
+			$limite  = 0;
+			$pagination="";
+			while($numeroPages <= $nbpages) {
+				$pagination= ''.$pagination.'<a id="page" href = "index.php?'.$donnée_a_transmettre.'='.$limite.' " >'.$numeroPages.'</a>';
+				$limite = $limite + $nb;
+				$numeroPages = $numeroPages + 1;
+				$compteurPages = $compteurPages + 1;
+				if($compteurPages == 10) 
+					$compteurPages = 1;	
+			}
+			return $pagination;
+	}
+
+	/* 	Les liens suivant et precedent
+		@param[in] 	$page : La page à transmettre
+		@param[in] 	$total : Le nombre total de resultat
+		@param[in] 	$nb : Le nombre total de page a afficher
+		@param[in] 	$donnée_a_transmettre : Les données à transmettre dans l'URL
+		@return 	$lien : Les liens suivant et precedent
+	*/
+	function displayNextPreviousButtons($page,$total,$nb,$donnée_a_transmettre) {
+		$limiteSuivante = $page + $nb;
+		$limitePrecedente = $page - $nb;
+		$lien='<br /><div id="liens" >';
+
+		if($page != 0) {
+		   $lien=''.$lien.'<a href="index.php?'.$donnée_a_transmettre.'='.$limitePrecedente.'">
+		   <img src="commun/images/precedent.png" alt="précédent" title="precedent" border="0"/></a>';
+		}
+		
+		$pagination= Pagination($nb,$total,$donnée_a_transmettre);
+		$lien=' '.$lien.' '.$pagination.' ';
+		
+		$nbpages=ceil($total/$nb);
+		if($limiteSuivante < $total) {
+			$lien=''.$lien.'<a href="index.php?'.$donnée_a_transmettre.'='.$limiteSuivante.'">
+			<img src="commun/images/suivant.png" alt="suivant" title="suivant" border="0"/></a>';       
+		}
+		$lien=''.$lien.'</div> ';
+
+		return $lien;
+	}
 ?>

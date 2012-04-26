@@ -37,6 +37,24 @@
 			//On insert l'emprunt de la cassette
 			insertEmpRes($noFilm,$noExemplaire,$codeAbonne);
 			echo 'On insert l\'emprunt de la cassette <br />';
+			//si on commmande par le biais du panier, on supprime le cookie
+			if(isset($_POST['panier'])){
+				//on initialise les variables
+				$j = 1;
+				$nbFilms = $_COOKIE['selection'][0];
+				$numFilmSupp = $noFilm;
+				
+				//on copie les numeros sauf le numero du film a supprimer
+				for($i = 1 ; $i <= $nbFilms ; ++$i){
+					$numFilm = $_COOKIE['selection'][$i];
+					if($numFilmSupp <> $numFilm){	
+						setcookie("selection[$j]",$numFilm);
+						$j++;
+					}
+				}
+				//ajuste le nombre total de film
+				setcookie("selection[0]", $j - 1);
+			}
 			
 			echo 'Commende bien effectué ! ';
 				

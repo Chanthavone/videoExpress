@@ -17,7 +17,7 @@ session_start();
 	<body>
 		<?php
 			include("commun/librairies/outils.inc");
-			banniere("","");
+			banniere("","Chanthavone & Diallo");
 		?>
 		<div id="conteneur_general">
 			<div id="conteneur_droite">

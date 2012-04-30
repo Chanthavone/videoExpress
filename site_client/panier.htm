@@ -8,7 +8,7 @@
 	require_once("modele/modeleEmpres.php");
 	
 	echo '<div id="contenu_panier">';
-	if($_COOKIE['selection'][0]!=0)
+	if(isset($_COOKIE['selection']) && $_COOKIE['selection'][0]!=0)
 		echo 'Vos articles ajoutés : </br>';
 	else
 		echo 'Aucun articles ajoutés </br>';
@@ -49,18 +49,18 @@
 	}
 	else
 		$nbCommandeRestant = 0;
-	if(!isset($_COOKIE['identite']) && $_COOKIE['selection'][0] <> 0){ //si on est pas connecté
+	if(!isset($_COOKIE['identite']) && isset($_COOKIE['selection']) && $_COOKIE['selection'][0] <> 0){ //si on est pas connecté
 		echo "<label id='message_js'><img border='0' src='commun/images/warning.png' /> Vous devez être connecté pour commander";
 		?><script>error=true ;</script><?php
 	}
-	elseif($_COOKIE['selection'][0] == 0){
+	elseif(isset($_COOKIE['selection']) && $_COOKIE['selection'][0] == 0){
 		?><script>error=true ;</script><?php
 	}
 	elseif($nbCommandeRestant == 0 && isset($_COOKIE['identite'])){	
 		echo "<label id='message_js'><img border='0' src='commun/images/warning.png' /> Vous ne pouvez pas commander, car vous détenez déjà 3 cassettes";
 		?><script>error=true ;</script><?php
 	}
-	elseif($nbCommandeRestant < $_COOKIE['selection'][0]){ //si notre panier est superieur au nombre de commandes restantes	
+	elseif(isset($_COOKIE['selection']) && $nbCommandeRestant < $_COOKIE['selection'][0]){ //si notre panier est superieur au nombre de commandes restantes	
 		echo "<label id='message_js'><img border='0' src='commun/images/warning.png' /> Vous avez trop de commande, donc pas de commande";
 		?><script>error=true ;</script><?php
 	}

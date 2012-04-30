@@ -47,7 +47,7 @@
 							echo '<img src="commun/images/interrogation.png" height="120" width="90" />';
 						echo '</div>';
 						echo '<div id="bloc_film_descriptif">';
-							echo '<h4>'.$search['Titre'].'</h4><br />
+							echo '<h4><a href="index.php?module=descriptif&numFilm='.$search['NoFilm'].'">'.$search['Titre'].'</a></h4><br />
 								  Genre : <em>'.$search['Genre'].'</em><br />
 								  Réalisateur : <em>'.$search['Realisateur'].'</em><br />';
 						echo '</div>';

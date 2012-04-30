@@ -12,7 +12,7 @@
 				</div>
 				<br />
 				<div id="auteur">
-					<h3>©'.$auteurs.'</h3>
+					©'.$auteurs.'
 				</div>
 			</div>
 			<div id="menu">

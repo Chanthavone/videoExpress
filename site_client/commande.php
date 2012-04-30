@@ -71,10 +71,5 @@
 	else{
 		echo "Le nom ou le code de l'abonné est incorrect. Réesseyez !";
 	}
-	//Lien de retour
-	if($cookie)
-		echo '<a href="index.php?module=identificationC">Retour</a>';
-	else
-		echo '<a href="index.php?module=accueil">Retour</a>';
 
 ?>

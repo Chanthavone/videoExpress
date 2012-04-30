@@ -8,10 +8,10 @@ session_start();
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<!--<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">-->
 		<link href="commun/styles/style.css" rel="stylesheet" type="text/css" />
-		<link rel="icon" type="image/png" href="images/favicon.jpg" />
+		<!--<link rel="icon" type="image/png" href="commun/images/favicon.ico" />-->
 		<script src="commun/javascript/jquery-1.5.2.min.js"></script>
         <script src="commun/javascript/slides.min.jquery.js"></script>
-		<title><?php echo $_GET['module'];?> </title>
+		<title><?php echo isset($_GET['module']) ? $_GET['module'] : 'Accueil';?> </title>
 	</head>
 	
 	<body>

@@ -77,6 +77,6 @@
 		else
 			echo "Le nom ou le code de l'abonné est incorrect. Réesseyez !";
 	}
-	echo '<a href="index.php?module=accueilRecherche">Retour</a>';
+	echo '<a href="javascript:history.go(-1)">Retour</a>';
 
 ?>

@@ -71,6 +71,6 @@
 			echo "Le nom ou le code de l'abonné est incorrect. Réesseyez !";
 	}
 	//Lien de retour
-	echo '<br /><a href="'.$_SESSION['retour'].'">Retour</a>';
+	echo '<br /><a href="javascript:history.go(-1)">Retour</a>';
 
 ?>

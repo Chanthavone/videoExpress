@@ -1,6 +1,11 @@
+<div class="titre">
+	<h2> <span>Commandes</span> </h2>
+</div>
 <!-- Pour avoir la fonction de verification en javascript -->
 <script type="text/javascript" src="commun/javascript/verificationFormulaire.js"></script>
 <?php
+	//Pour avoir la fonction de verification de l'admin
+	include("modele/modeleAdmin.php");
 	//Pour avoir la fonction de verification de l'abonne
 	include("modele/modeleAbonnes.php");
 	//Pour avoir la fonction de recuperation des emprunts
@@ -44,9 +49,6 @@
 		else
 			$nbCommandeRestant = abs($nbCommande - $maxEmprunt) ;
 		
-		echo '<div class="titre">
-				<h2> <span>Commandes</span> </h2>
-			</div>';
 		//on affiche le nombre de commande que l'abonne peut passer
 		echo '<h2>Nombre de commande restant : '.$nbCommandeRestant.'</h2><br />';
 		
@@ -69,7 +71,12 @@
 		}
 	}
 	else{
-		echo "Le nom ou le code de l'abonné est incorrect. Réesseyez !";
+		$existeAdmin  = verifAdmin($nom,$pass);
+		if($existeAdmin)
+			echo "Vous êtes connecté en tant que administrateur. Vous ne pouvez donc pas commander des cassetttes.";
+		else
+			echo "Le nom ou le code de l'abonné est incorrect. Réesseyez !";
 	}
+	echo '<a href="index.php?module=accueilRecherche">Retour</a>';
 
 ?>

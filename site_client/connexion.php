@@ -1,6 +1,8 @@
 <?php
 	//Pour avoir la fonction de verification de l'abonne
 	include("modele/modeleAbonnes.php");
+	//Pour avoir la fonction de verification de l'admin
+	include("modele/modeleAdmin.php");
 	
 	$cookie = false;
 	//on verifie si on a un cookie
@@ -17,16 +19,22 @@
 	else{
 		exit("Impossible de se connecter");
 	}
-	//on appelle la fonction de verification
-	$existeAbonne = verifAbonnes($nom,$pass);
 	
+	//on appelle la fonction de verification de l'abonne et de l'admin
+	$existeAbonne = verifAbonnes($nom,$pass);
+	$existeAdmin  = verifAdmin($nom,$pass);
 	//Si il existe on affiche la page de reference, sinon on affiche un message d'erreur
 	if($existeAbonne){
-		//si on a pas de cookie
-		if($cookie){
-			setcookie("identite[0]", $nom);
-			setcookie("identite[1]", $pass);
-		}
+		$statut = 'abonne';
+	}
+	elseif($existeAdmin){
+		$statut = 'admin';
+	}
+	//si on a pas de cookie
+	if($cookie && isset($statut)){
+		setcookie("identite[0]", $nom);
+		setcookie("identite[1]", $pass);
+		setcookie("identite[2]", $statut);
 		// On redirige vers la page d'accueil
 		header('Location: index.php?module=accueil');
 	}

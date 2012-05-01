@@ -3,13 +3,15 @@
 </div>
 
 <?php
+	//Pour avoir la fonction de verification de l'admin
+	include("modele/modeleAdmin.php");
 	//Pour avoir la fonction de verification de l'abonne
 	include("modele/modeleAbonnes.php");
 	//Pour avoir la fonction de recuperation des emprunts
 	include("modele/modeleEmpres.php");
 	//Pour avoir la fonction de recuperation des titres et des realisateurs
 	include("modele/modeleFilms.php");
-	
+
 	$cookie = false;
 	//on verifie si on a un cookie
 	if(isset($_COOKIE['identite'])){
@@ -62,12 +64,13 @@
 		}
 	}
 	else{
-		echo "Le nom ou le code de l'abonné est incorrect. Réesseyez !";
+		$existeAdmin  = verifAdmin($nom,$pass);
+		if($existeAdmin)
+			echo "Vous êtes connecté en tant que administrateur. Vous ne pouvez donc pas consulter des cassetttes detenues.";
+		else
+			echo "Le nom ou le code de l'abonné est incorrect. Réesseyez !";
 	}
 	//Lien de retour
-	if($cookie)
-		echo '<a href="index.php?module=identificationD">Retour</a>';
-	else
-		echo '<a href="index.php?module=accueil">Retour</a>';
+	echo '<br /><a href="'.$_SESSION['retour'].'">Retour</a>';
 
 ?>

@@ -40,7 +40,13 @@ session_start();
 						else { 
 							$module = 'accueil';
 						}
-
+						
+						//liens de retour
+						if($module <> $_SESSION['retour']){
+							$url = explode("/",$_SERVER['HTTP_REFERER']);
+							$_SESSION['retour'] = $url[4];
+						}
+						
 						switch($module){
 						
 							case "accueil" : 

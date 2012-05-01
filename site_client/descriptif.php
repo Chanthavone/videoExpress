@@ -65,6 +65,6 @@
 		echo "<h3>Impossible d'avoir le descriptif !</h3>";
 	}
 	//Lien de retour
-	echo '<a href="index.php?module=accueilDescriptif">Retour</a>';
+	echo '<a href="'.$_SESSION['retour'].'">Retour</a>';
 
 ?>

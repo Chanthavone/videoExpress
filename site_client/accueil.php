@@ -17,6 +17,8 @@
 	film action, film science-fiction, film comédie, film fantastique, film horreur, film aventure,
 	comédie romantique, film comique, film comédie française, film jeunesse
 	vous trouverez tous ces genres sur VideoExpress.com et bien plus encore.
-	Nouveauté DVD 2011, films comédie, film comique 2011, sortie DVD 2011, film nouveauté, sont chez VideoExpress.
+	Nouveauté DVD 2011, films comédie, film comique 2011, sortie DVD 2011, film nouveauté, sont chez VideoExpress.<br />
 	</p>
+	
+	
 </div>

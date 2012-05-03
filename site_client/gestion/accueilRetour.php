@@ -1,6 +1,9 @@
-﻿<!-- Pour avoir la fonction de verification en javascript -->
+<!-- Pour avoir la fonction de verification en javascript -->
 <script type="text/javascript" src="commun/javascript/verificationFormulaire.js"></script>
-<h1>Accueil retour</h1>
+
+<div class="titre">
+	<h2> <span>Retour de cassette</span> </h2>
+</div>
 
 <form id="formRetour" action="index.php?module=retour" method="post">
 	<fieldset>

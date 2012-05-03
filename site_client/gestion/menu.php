@@ -1,4 +1,7 @@
-﻿<h1>Menu</h1>
+<div class="titre">
+	<h2> <span>Menu</span> </h2>
+</div>
+
 <?php
 	//Pour avoir la fonction de verification de l'abonne
 	include("modele/modeleAbonnes.php");
@@ -34,10 +37,11 @@
 		}
 		//sinon, on affiche le menu des opérations disponibles
 		else{
-			echo '<a href="index.php?module=accueilRetour">Retour de cassettes</a><br />';
-			echo '<a href="#">Enregistrer de nouveaux abonnés</a><br />';
-			echo '<a href="#">Modifier des fiches d\'abonnés</a><br />';
-			echo '<a href="#">Radier des abonnés</a><br />';	
+			echo '<a href="index.php?module=gestion&admin=accueilRetour">Retour de cassettes</a><br />';
+			echo '<a href="index.php?module=gestion&admin=ajoutAbonne">Ajouter un abonné</a><br />';
+			echo '<a href="index.php?module=gestion&admin=listeAbonne">Liste de abonnés</a><br />';
+			echo '<a href="index.php?module=gestion&admin=ajoutFilm">Ajouter un film</a><br />';
+            echo '<a href="index.php?module=gestion&admin=listeFilms">Liste des films</a><br />';            
 		}
 		
 	}

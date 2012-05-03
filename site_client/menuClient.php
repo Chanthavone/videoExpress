@@ -7,10 +7,11 @@
 <?php }
 	elseif($_COOKIE['identite'][2] == 'admin'){ ?>
 		<ul id="menuClient">
-			<li> <a href="index.php?module=accueilRetour">Retour de cassettes</a> </li>
-			<li> <a href="#">Enregistrer de nouveaux abonnés</a> </li>
-			<li> <a href="#">Modifier des fiches d'abonnés</a> </li>
-			<li> <a href="#">Radier des abonnés</a> </li>
-			<li> <a href="index.php?module=deconnexion">Déconnexion</a> </li>
+			<li><a href="index.php?module=gestion&admin=accueilRetour">Retour de cassettes</a></li>
+			<li><a href="index.php?module=gestion&admin=ajoutAbonne">Ajouter un abonné</a></li>
+			<li><a href="index.php?module=gestion&admin=listeAbonnes">Liste de abonnés</a></li>
+			<li><a href="index.php?module=gestion&admin=ajoutFilm">Ajouter un film</a></li>
+            <li><a href="index.php?module=gestion&admin=listeFilms">Liste des films</a></li>
+            <li><a href="index.php?module=deconnexion">Déconnexion</a></li>
 		</ul>
 <?php } ?>

@@ -93,20 +93,8 @@ session_start();
 								require("site_client/detenues.php");
 							break;
 							
-							case "index" :
-								require("site_client/gestion/index.htm");
-							break;
-							
-							case "menu" :
-								require("site_client/gestion/menu.php");
-							break;
-							
-							case "accueilRetour" :
-								require("site_client/gestion/accueilRetour.php");
-							break;
-							
-							case "retour" :
-								require("site_client/gestion/retour.php");
+							case "gestion" :
+								require("site_client/gestion/index.php");
 							break;
 							
 							case "ajoutSelection" :

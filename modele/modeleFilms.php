@@ -112,5 +112,20 @@
 		$resultat = mysql_fetch_assoc($res);
 		return $resultat['Realisateur'];	
 	}
+    
+    /* Permet d'obtenir la liste de tous les abonnes ainsi que leurs informations
+    @return : Retourne la liste des abonnes
+    */
+    function getListeFilms() {
+        global $serv;
+        $req = "SELECT * FROM films;";
+        $res = db_execSQL($req,$serv);
+		
+		$recherche = array();
+		while($result = mysql_fetch_assoc($res)) {
+			$recherche[] = $result;
+		}
+		return $recherche;
+    }
 	
 ?>

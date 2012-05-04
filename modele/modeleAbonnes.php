@@ -36,5 +36,34 @@
 		$resultat = mysql_fetch_assoc($res);
 		return $resultat['Nom'];		
 	}
+    
+    /* Insert un abonne
+	@param[in] $code : le code client de l'abonne
+	@param[in] $nom : le nom de l'abonne
+	@param[in] $prenom : le prenom de l'abonne
+    @param[in] $rue : la rue de l'abonne
+    @param[in] $codepostal : le code postal de l'abonne
+    ....
+	*/
+	function insertAbonne($code,$nom,$prenom,$rue,$codepostal,$ville,$batiment=null,$etage=null,$digicode=null,$tel=null,$mail=null,$banque,$guichet,$compte){
+		global $serv;
+		$req = "INSERT INTO abonnes VALUES('$code','$nom','$prenom','$rue','$codepostal','$ville','$batiment','$etage','$digicode','$tel','$mail',$banque,$guichet,'$compte',0);";
+		$res = db_execSQL($req,$serv);
+	}
+    
+    /* Permet d'obtenir la liste de tous les abonnes ainsi que leurs informations
+    @return : Retourne la liste des abonnes
+    */
+    function getAbonnes() {
+        global $serv;
+        $req = "SELECT * FROM abonnes;";
+        $res = db_execSQL($req,$serv);
+		
+		$recherche = array();
+		while($result = mysql_fetch_assoc($res)) {
+			$recherche[] = $result;
+		}
+		return $recherche;
+    }
 
 ?>

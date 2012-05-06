@@ -127,5 +127,14 @@
 		}
 		return $recherche;
     }
+    
+    /* Supprimer un film
+    @param[in] $num : numéro du film
+    */
+    function deleteFilm($num) {
+        global $serv;
+        $req = "DELETE FROM films WHERE NoFilm = $num;";
+        $res = db_execSQL($req,$serv);
+    }
 	
 ?>

@@ -42,6 +42,14 @@
                 require("site_client/gestion/listeFilms.php");
             break;
             
+            case "supprimerAbonne" :
+                require("site_client/gestion/supprimerAbonne.php");
+            break;
+            
+            case "supprimerFilm" :
+                require("site_client/gestion/supprimerFilm.php");
+            break;
+            
             case "retour" :
                 require("site_client/gestion/retour.php");
             break;

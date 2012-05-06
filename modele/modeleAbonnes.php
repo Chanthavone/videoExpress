@@ -65,5 +65,14 @@
 		}
 		return $recherche;
     }
+    
+    /* Supprimer un abonne
+    @param[in] $code : code de l'abonne 
+    */
+    function deleteAbonne($code) {
+        global $serv;
+        $req = "DELETE FROM abonnes WHERE Code = '$code';";
+        $res = db_execSQL($req,$serv);
+    }
 
 ?>

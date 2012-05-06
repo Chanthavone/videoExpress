@@ -11,6 +11,7 @@ session_start();
 		<!--<link rel="icon" type="image/png" href="commun/images/favicon.ico" />-->
 		<script src="commun/javascript/jquery-1.5.2.min.js"></script>
         <script src="commun/javascript/slides.min.jquery.js"></script>
+        <script src="commun/javascript/fonction.js"></script>
 		<title><?php echo isset($_GET['module']) ? $_GET['module'] : 'Accueil';?> </title>
 	</head>
 	

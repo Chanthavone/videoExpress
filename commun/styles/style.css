@@ -471,3 +471,10 @@ h2 {
 .classblue {
     background-color:#C3CBFF;
 }
+
+#options {
+    margin-top:auto;
+    margin-bottom:auto;
+    height:25px;
+    width:100px;
+}

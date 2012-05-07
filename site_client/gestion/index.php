@@ -50,6 +50,14 @@
                 require("site_client/gestion/supprimerFilm.php");
             break;
             
+            case "detailsFilm" :
+                require("site_client/gestion/detailsFilm.php");
+            break;
+            
+            case "detailsAbonne" :
+                require("site_client/gestion/detailsAbonne.php");
+            break;
+            
             case "retour" :
                 require("site_client/gestion/retour.php");
             break;

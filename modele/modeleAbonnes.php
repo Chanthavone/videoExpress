@@ -75,4 +75,14 @@
         $res = db_execSQL($req,$serv);
     }
 
+    /* Retourne toutes les informations d'un abonne
+    @param[in] $numAbonne : Numéro de l'abonne
+    */
+    function getUnAbonne($numAbonne) {
+        global $serv;
+        $req = "SELECT * FROM abonnes WHERE Code = '$numAbonne';";
+        $res = db_execSQL($req,$serv);
+        $resultat = mysql_fetch_assoc($res);
+        return $resultat;
+    }
 ?>

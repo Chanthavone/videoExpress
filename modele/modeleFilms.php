@@ -137,4 +137,9 @@
         $res = db_execSQL($req,$serv);
     }
 	
+    function insertFilm($numero,$titre,$nationalite,$realisateur,$couleur,$annee,$genre,$duree,$synopsis){
+		global $serv;
+		$req = "INSERT INTO films VALUES($numero,'$titre','$nationalite','$realisateur','$couleur','$annee','$genre','$duree','$synopsis');";
+		$res = db_execSQL($req,$serv);
+	}
 ?>

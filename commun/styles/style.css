@@ -457,14 +457,14 @@ h2 {
     background-image: url(../images/bouton-menu2.png);
 }
 
-#tableListeAbonne, #tableListeFilms {
+.tableColor {
     margin:auto;
     width:90%;
     border-collapse:collapse;
     text-align:center;
 }
 
-#tableListeAbonne tr td, #tableListeFilms tr td{
+.tableColor tr td{
     border-style:none;
 }
 
@@ -477,4 +477,16 @@ h2 {
     margin-bottom:auto;
     height:25px;
     width:100px;
+}
+
+#tableDetailsAbonne {
+    text-align:left;
+}
+
+.sousTitre {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left:30px;
+    font-style: italic;
+    color: #6589D6;
 }

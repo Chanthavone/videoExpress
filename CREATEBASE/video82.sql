@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1
+-- version 3.4.5
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Mar 01 Mai 2012 à 10:32
--- Version du serveur: 5.5.20
--- Version de PHP: 5.3.10
+-- Généré le : Mar 08 Mai 2012 à 18:05
+-- Version du serveur: 5.5.16
+-- Version de PHP: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -53,7 +53,8 @@ INSERT INTO `abonnes` (`Code`, `Nom`, `Prenom`, `NoRue`, `CodePostal`, `Ville`, 
 ('1Xu123', 'Duval', 'Jean', '27, rue Jacques Amyot', '75011', 'PARIS', 'sur rue', '4', '132B3', '01.23.67.12.21', 'jduval@wanadoo.fr', 3004, 1452, '000045154', 3),
 ('25y13p', 'de Prees', 'Beatrice', '11bis, Bd Beaumarchais', '75004', 'PARIS', 'Figaro', NULL, '4590A', '01.47.12.98.82', 'beatrice.deprees@aol.com', 1245, 784, '562 27 P', 4),
 ('365AL8', 'Miriel', 'Paul', '38, rue Beaugrenelle', '75015', 'PARIS', NULL, NULL, '92B63', '01.56.14.87.71', 'Paul.Miriel@libertysurf.fr', 2035, 451, '802452107', 5),
-('4367Xs', 'Belmi', 'Valerie', '191, rue Pierre Larousse', '75014', 'PARIS', 'C', '7', '4A569', '01.28.16.52.44', 'vbelmi@free.fr', 1245, 1053, '0052178', 3);
+('4367Xs', 'Belmi', 'Valerie', '191, rue Pierre Larousse', '75014', 'PARIS', 'C', '7', '4A569', '01.28.16.52.44', 'vbelmi@free.fr', 1245, 1053, '0052178', 2),
+('QSDF78', 'Toutou', 'Toto', '7 rue Lagrange', '94190', 'Villeneuve-saint-Geo', '', '', '', '0102030405', 'tes@test.com', 1234, 1000, '1020324506', 0);
 
 -- --------------------------------------------------------
 
@@ -227,7 +228,7 @@ INSERT INTO `cassettes` (`NoFilm`, `NoExemplaire`, `Support`, `Statut`) VALUES
 (13, 3, 'DVD', 'empruntee'),
 (14, 1, 'VHS', 'empruntee'),
 (14, 2, 'VHS', 'disponible'),
-(14, 3, 'DVD', 'empruntee'),
+(14, 3, 'DVD', 'disponible'),
 (15, 1, 'VHS', 'disponible'),
 (15, 2, 'DVD', 'disponible'),
 (16, 1, 'DVD', 'disponible'),
@@ -265,7 +266,6 @@ INSERT INTO `empres` (`NoFilm`, `NoExemplaire`, `CodeAbonne`, `DateEmpRes`) VALU
 (11, 1, '365AL8', '2012-04-11 15:19:00'),
 (12, 1, '365AL8', '2012-04-11 15:19:00'),
 (13, 3, '4367Xs', '2012-04-25 14:06:11'),
-(14, 3, '4367Xs', '2012-04-25 14:06:58'),
 (18, 1, '4367Xs', '2012-04-23 14:51:58');
 
 -- --------------------------------------------------------
@@ -284,6 +284,7 @@ CREATE TABLE IF NOT EXISTS `films` (
   `Genre` enum('Comédie','Comédie dramatique','Drame','Aventure','Documentaire') CHARACTER SET utf8 DEFAULT NULL,
   `Duree` smallint(6) DEFAULT NULL,
   `Synopsis` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `Image` varchar(100) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`NoFilm`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -291,25 +292,25 @@ CREATE TABLE IF NOT EXISTS `films` (
 -- Contenu de la table `films`
 --
 
-INSERT INTO `films` (`NoFilm`, `Titre`, `Nationalite`, `Realisateur`, `Couleur`, `Annee`, `Genre`, `Duree`, `Synopsis`) VALUES
-(1, 'La Chambre des officiers', 'français', 'François Dupeyron', 'Couleurs', 2001, 'Drame', 135, 'Août 1914. Adrien, jeune et séduisant lieutenant, part à cheval en reconnaisance. Un obus éclate. La guerre, c''est au Val-de-Grâce qu''il la passe, dans la chambre des officiers. Une pièce sans miroir, où chacun se voit dans le regard de l''autre.'),
-(2, 'Le Charme discret de la bourgeoisie', 'français', 'Luis Bunuel', 'Couleurs', 1972, 'Comédie dramatique', 100, 'Une étude cynique et sans complaisance de l''hypocrisie bourgeoise.'),
-(3, 'A la campagne', 'français', 'Manuel Poirier', 'Couleurs', 1994, 'Comédie dramatique', 108, 'Une jeune femme, sortie de prison et venue rejoindre sa soeur dans une petite ville de l''Eure, se lie quelque temps avec Benoît, qui a choisi de vivre à la campagne.'),
-(4, 'Belle de jour', 'français', 'Luis Bunuel', 'Couleurs', 1966, 'Comédie dramatique', 102, 'Séverine n''a jamais trouvé de véritable plaisir auprès de son mari, Pierre. Un des amis du ménage lui glisse un jour l''adresse d''un maison clandestine. Troublée, Séverine ne résiste pas à l''envie de s''y rendre.'),
-(5, 'La Cicatrice', 'polonais', 'Krzysztof Kieslowski', 'Couleurs', 1976, 'Comédie dramatique', 104, 'Bednarz se résoud à accepter de mener la construction d''un grand complexe chimique, dans une petite ville qui fut le théâtre d''une période malheureuse de sa vie. Il se promet de construire un site où les gens vivront dans le bonheur.'),
-(6, 'Carrément à l''Ouest', 'français', 'Jacques Doillon', 'Couleurs', 2000, 'Comédie dramatique', 97, 'A Paris où l''entraînent ses petites magouilles, Alex va faire une drôle de rencontre avec deux filles: Fred et Sylvia. Fred organise un bizarre jeu de séduction, pour éprouver Alex.'),
-(7, 'Le ciel est à vous', 'français', 'Jean Grémillon', 'Noir et Blanc', 1943, 'Comédie dramatique', 105, 'Transposition de la vie de Mme Dupeyron, qui devint l''une des premières aviatrices légendaires (elle détint longtemps le record de distance en ligne droite).'),
-(8, 'La Dolce Vita', 'italien', 'Federico Fellini', 'Noir et Blanc', 1960, 'Comédie dramatique', 160, 'Le chroniqueur Marcello fait le tour des lieux à scandale pour alimenter les potins d''un journal à fort tirage.'),
-(9, 'Et vogue le navire', 'franco-italien', 'Federico Fellini', 'Couleurs', 1983, 'Comédie dramatique', 135, '1914. La haute société européenne, artistes et politiciens de renom, s''apprête à disperser, au cours d''une croisière, les cendres de leur diva adulée. La guerre va frapper de plein fouet les insouciants passagers... '),
-(10, 'Le Fantôme de la liberté', 'français', 'Luis Bunuel', 'Couleurs', 1974, 'Comédie dramatique', 105, 'Film à sketches insolites et farfelus ponctués par des scènes de répression où l''on entend le cri «A bas la liberté».'),
-(11, 'La Fin du jour', 'français', 'Julien Duvivier', 'Noir et Blanc', 1939, 'Comédie dramatique', 108, 'L''abbaye de Saint-Jean-la-Rivière menace de fermer ses portes. Ce qui serait une véritable catastrophe pour ses pensionnaires, tous de vieux comédiens sans ressource. Saint-Clair, comédien autrefois adulé, vient justement d''y arriver.'),
-(12, 'Trois couleurs - Blanc', 'franco-polonais', 'Krzysztof Kieslowski', 'Couleurs', 1993, 'Comédie dramatique', 91, 'Dans ce deuxième volet de ses «Trois couleurs», Krzysztof Kieslowski conte l''histoire de Karol, polonais, et de Dominique, française. Nous faisons leur connaissance au moment de leur divorce et où en quelque sorte leur histoire commence.'),
-(13, 'Trois couleurs - Bleu', 'franco-helvético-polonais', 'Krzysztof Kieslowski', 'Couleurs', 1992, 'Comédie dramatique', 100, 'Julie, la femme d''un grand compositeur qui a trouvé la mort avec leur enfant lors d''un accident d''automobile, va tenter de retrouver la liberté contre les pressions et les pièges de son entourage.'),
-(14, 'Trois couleurs - Rouge', 'franco-helvético-polonais', 'Krzysztof Kieslowski', 'Couleurs', 1993, 'Comédie dramatique', 96, 'Dans ce troisième volet qui conclut les trois couleurs, Valentine, étudiante de l''université de Genève, écrase un chien. L''animal est juste blessé. Sur une plaque, attachée à son collier, Valentine trouve l''adresse du propriétaire. C''est un juge.'),
-(15, 'Je rentre à la maison', 'français', 'Manuel de Oliveira', 'Couleurs', 2001, 'Drame', 90, 'Sur scène, Gilbert Valence, grand comédien reconnu, joue les vieillards indignes ou magnifiques.Un soir après la représentation, on lui annonce la mort accidentelle des siens. Ne reste qu''un petit-fils.'),
-(16, 'Baisers volés', 'français', 'François Truffaut', 'Couleurs', 1968, 'Comédie', 90, 'La suite des aventures d''Antoine Doinel après son service militaire. Ses rencontres et aventures amoureuses.'),
-(17, 'Le Chocolat', 'américain', 'Lasse Hallström', 'Couleurs', 2000, 'Comédie', 122, 'A Lansquenet, dans la France profonde de 1959,sous le regard impitoyable du comte, tout le monde va à la messe. Sauf deux nouvelles venues, une mère et sa fillette, qui s''installent pour vendre des chocolats.'),
-(18, 'Une hirondelle a fait le printemps', 'français', 'Christian Carion', 'Couleurs', 2001, 'Comédie dramatique', 103, 'A trente ans, Sandrine en a assez de Paris. Décidée à devenir agricultrice, son rêve depuis toujours, elle achète une ferme dans le Vercors. Mais la cohabitation avec l''ex-propriétaire, Adrien, resté sur les lieux, n''est pas de tout repos.');
+INSERT INTO `films` (`NoFilm`, `Titre`, `Nationalite`, `Realisateur`, `Couleur`, `Annee`, `Genre`, `Duree`, `Synopsis`, `Image`) VALUES
+(1, 'La Chambre des officiers', 'français', 'François Dupeyron', 'Couleurs', 2001, 'Drame', 135, 'Août 1914. Adrien, jeune et séduisant lieutenant, part à cheval en reconnaisance. Un obus éclate. La guerre, c''est au Val-de-Grâce qu''il la passe, dans la chambre des officiers. Une pièce sans miroir, où chacun se voit dans le regard de l''autre.', '1.jpg'),
+(2, 'Le Charme discret de la bourgeoisie', 'français', 'Luis Bunuel', 'Couleurs', 1972, 'Comédie dramatique', 100, 'Une étude cynique et sans complaisance de l''hypocrisie bourgeoise.', '2.jpg'),
+(3, 'A la campagne', 'français', 'Manuel Poirier', 'Couleurs', 1994, 'Comédie dramatique', 108, 'Une jeune femme, sortie de prison et venue rejoindre sa soeur dans une petite ville de l''Eure, se lie quelque temps avec Benoît, qui a choisi de vivre à la campagne.', '3.jpg'),
+(4, 'Belle de jour', 'français', 'Luis Bunuel', 'Couleurs', 1966, 'Comédie dramatique', 102, 'Séverine n''a jamais trouvé de véritable plaisir auprès de son mari, Pierre. Un des amis du ménage lui glisse un jour l''adresse d''un maison clandestine. Troublée, Séverine ne résiste pas à l''envie de s''y rendre.', '4.jpg'),
+(5, 'La Cicatrice', 'polonais', 'Krzysztof Kieslowski', 'Couleurs', 1976, 'Comédie dramatique', 104, 'Bednarz se résoud à accepter de mener la construction d''un grand complexe chimique, dans une petite ville qui fut le théâtre d''une période malheureuse de sa vie. Il se promet de construire un site où les gens vivront dans le bonheur.', '5.jpg'),
+(6, 'Carrément à l''Ouest', 'français', 'Jacques Doillon', 'Couleurs', 2000, 'Comédie dramatique', 97, 'A Paris où l''entraînent ses petites magouilles, Alex va faire une drôle de rencontre avec deux filles: Fred et Sylvia. Fred organise un bizarre jeu de séduction, pour éprouver Alex.', '6.jpg'),
+(7, 'Le ciel est à vous', 'français', 'Jean Grémillon', 'Noir et Blanc', 1943, 'Comédie dramatique', 105, 'Transposition de la vie de Mme Dupeyron, qui devint l''une des premières aviatrices légendaires (elle détint longtemps le record de distance en ligne droite).', '7.jpg'),
+(8, 'La Dolce Vita', 'italien', 'Federico Fellini', 'Noir et Blanc', 1960, 'Comédie dramatique', 160, 'Le chroniqueur Marcello fait le tour des lieux à scandale pour alimenter les potins d''un journal à fort tirage.', '8.jpg'),
+(9, 'Et vogue le navire', 'franco-italien', 'Federico Fellini', 'Couleurs', 1983, 'Comédie dramatique', 135, '1914. La haute société européenne, artistes et politiciens de renom, s''apprête à disperser, au cours d''une croisière, les cendres de leur diva adulée. La guerre va frapper de plein fouet les insouciants passagers... ', '9.jpg'),
+(10, 'Le Fantôme de la liberté', 'français', 'Luis Bunuel', 'Couleurs', 1974, 'Comédie dramatique', 105, 'Film à sketches insolites et farfelus ponctués par des scènes de répression où l''on entend le cri «A bas la liberté».', '10.jpg'),
+(11, 'La Fin du jour', 'français', 'Julien Duvivier', 'Noir et Blanc', 1939, 'Comédie dramatique', 108, 'L''abbaye de Saint-Jean-la-Rivière menace de fermer ses portes. Ce qui serait une véritable catastrophe pour ses pensionnaires, tous de vieux comédiens sans ressource. Saint-Clair, comédien autrefois adulé, vient justement d''y arriver.', '11.jpg'),
+(12, 'Trois couleurs - Blanc', 'franco-polonais', 'Krzysztof Kieslowski', 'Couleurs', 1993, 'Comédie dramatique', 91, 'Dans ce deuxième volet de ses «Trois couleurs», Krzysztof Kieslowski conte l''histoire de Karol, polonais, et de Dominique, française. Nous faisons leur connaissance au moment de leur divorce et où en quelque sorte leur histoire commence.', '12.jpg'),
+(13, 'Trois couleurs - Bleu', 'franco-helvético-polonais', 'Krzysztof Kieslowski', 'Couleurs', 1992, 'Comédie dramatique', 100, 'Julie, la femme d''un grand compositeur qui a trouvé la mort avec leur enfant lors d''un accident d''automobile, va tenter de retrouver la liberté contre les pressions et les pièges de son entourage.', '13.jpg'),
+(14, 'Trois couleurs - Rouge', 'franco-helvético-polonais', 'Krzysztof Kieslowski', 'Couleurs', 1993, 'Comédie dramatique', 96, 'Dans ce troisième volet qui conclut les trois couleurs, Valentine, étudiante de l''université de Genève, écrase un chien. L''animal est juste blessé. Sur une plaque, attachée à son collier, Valentine trouve l''adresse du propriétaire. C''est un juge.', '14.jpg'),
+(15, 'Je rentre à la maison', 'français', 'Manuel de Oliveira', 'Couleurs', 2001, 'Drame', 90, 'Sur scène, Gilbert Valence, grand comédien reconnu, joue les vieillards indignes ou magnifiques.Un soir après la représentation, on lui annonce la mort accidentelle des siens. Ne reste qu''un petit-fils.', '15.jpg'),
+(16, 'Baisers volés', 'français', 'François Truffaut', 'Couleurs', 1968, 'Comédie', 90, 'La suite des aventures d''Antoine Doinel après son service militaire. Ses rencontres et aventures amoureuses.', '16.jpg'),
+(17, 'Le Chocolat', 'américain', 'Lasse Hallström', 'Couleurs', 2000, 'Comédie', 122, 'A Lansquenet, dans la France profonde de 1959,sous le regard impitoyable du comte, tout le monde va à la messe. Sauf deux nouvelles venues, une mère et sa fillette, qui s''installent pour vendre des chocolats.', '17.jpg'),
+(18, 'Une hirondelle a fait le printemps', 'français', 'Christian Carion', 'Couleurs', 2001, 'Comédie dramatique', 103, 'A trente ans, Sandrine en a assez de Paris. Décidée à devenir agricultrice, son rêve depuis toujours, elle achète une ferme dans le Vercors. Mais la cohabitation avec l''ex-propriétaire, Adrien, resté sur les lieux, n''est pas de tout repos.', '18.jpg');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

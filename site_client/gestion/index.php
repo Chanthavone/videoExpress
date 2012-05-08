@@ -78,10 +78,11 @@
 </div>
 
 <form id="formIdentification" action="index.php?module=menu" method="post">
-	<fieldset>
-		<label>Nom de l'administrateur : </label><input type="text" name="nom" onblur="purge(this)" value="Belmi"/><label id="nom_js"></label><br />
-		<label>Mot de passe : </label><input type="password" name="pass" onblur="purge(this)" value="4367Xs"/><label id="pass_js"></label><br />
-		<input type="submit" value="Envoyer" onClick="identification()"/>
+	<fieldset class="formulaire">
+		<legend>Identification</legend>
+		<label class="label_recherche">Administrateur : </label><input type="text" name="nom" onblur="purge(this)" value="Belmi"/><label id="nom_js"></label><br />
+		<label class="label_recherche">Mot de passe : </label><input type="password" name="pass" onblur="purge(this)" value="4367Xs"/><label id="pass_js"></label><br />
+		<input type="submit" class="bouton" value="Se connecter" onClick="identification()"/>
 	</fieldset>
 </form>
 

@@ -2,6 +2,13 @@
 	<h2> <span>Liste des abonnes</span> </h2>
 </div>
 
+<br />
+<div id="intro">
+	Vous voulez voir vos abonnés? Modifier leurs informations? Les radier?<br />
+	Cet outil est à votre disposition pour pouvoir administrer vos abonnés. <br />
+	<br class="blank" />
+</div>
+
 <?php
     // Appel de la page contenant les fonction de recherche d'abonnes
     include("modele/modeleAbonnes.php");

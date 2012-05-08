@@ -298,10 +298,13 @@ h2 {
 }
 
 #bloc_film_descriptif h4 a{
-	margin-top:0px;
-	margin-bottom:5px;
 	font-style:italic;
 	color:#6589D6;
+}
+
+#bloc_film_descriptif h4{
+	margin-top:0px;
+	margin-bottom:5px;
 }
 
 #descriptif_film {

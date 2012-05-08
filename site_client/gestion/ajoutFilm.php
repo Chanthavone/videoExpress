@@ -15,7 +15,8 @@
         $_POST['annee'],
         $_POST['genre'],
         $_POST['duree'],
-        $_POST['synopsis']
+        $_POST['synopsis'],
+		$_POST['url']
         );
     }
 ?>

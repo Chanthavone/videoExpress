@@ -2,6 +2,13 @@
 	<h2> <span>Liste des films</span> </h2>
 </div>
 
+<br />
+<div id="intro">
+	Vous voulez voir la liste des films que nous proposons?<br />
+	Cet outil est à votre disposition pour pouvoir gérer tous nos films! <br />
+	<br class="blank" />
+</div>
+
 <?php
     // Appel de la page contenant les fonction de recherche de films
     include("modele/modeleFilms.php");

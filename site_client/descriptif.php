@@ -23,7 +23,7 @@
 			if(count($film) > 1){
 				echo '<div id="descriptif_film">';
 					echo '<div id="descriptif_film_image">';
-						echo '<img src="commun/images/interrogation.png" height="190" width="150" />';
+						echo '<img src="commun/images/films/'.$film["Image"].'" height="190" width="150" />';
 					echo '</div>';
 					echo '<div id="descriptif_film_descriptif">';
 						echo '<h3>'.$film["Titre"].'</h3><br />';

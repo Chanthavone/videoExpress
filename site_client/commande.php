@@ -28,7 +28,7 @@
 		$cookie = true;
 	}
 	else{
-		exit("Impossible de se connecter");
+		header("Location: index.php?module=identificationC");
 	}
 	//on appelle la fonction de verification
 	$existeAbonne = verifAbonnes($nom,$pass);

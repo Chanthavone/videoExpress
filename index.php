@@ -157,7 +157,7 @@ session_start();
 						<h2> <span> Votre Panier</span> </h2>
 					</div>
 					<?php
-						require("site_client/panier.htm");
+						require("site_client/panier.php");
 					?>
 					<br class="blank" />					
 				</div>

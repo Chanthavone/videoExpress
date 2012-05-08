@@ -11,7 +11,7 @@
 	if(isset($_COOKIE['selection']) && $_COOKIE['selection'][0]!=0)
 		echo 'Vos articles ajoutés : </br>';
 	else
-		echo 'Aucun articles ajoutés </br>';
+		echo 'Aucun article ajouté </br>';
 	
 	//si le cookie est defini ou nbfilms != 0
 	if(isset($_COOKIE['selection']) && $_COOKIE['selection'][0]!=0){

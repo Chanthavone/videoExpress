@@ -44,7 +44,7 @@
 				foreach($recherche as $search){
 					echo '<div id="bloc_film">';
 						echo '<div id="bloc_film_image">';
-							echo '<img src="commun/images/interrogation.png" height="120" width="90" />';
+							echo '<img src="commun/images/films/'.$search['Image'].'" height="120" width="90" />';
 						echo '</div>';
 						echo '<div id="bloc_film_descriptif">';
 							echo '<h4><a href="index.php?module=descriptif&numFilm='.$search['NoFilm'].'">'.$search['Titre'].'</a></h4><br />

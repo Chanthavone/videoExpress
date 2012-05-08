@@ -112,6 +112,18 @@
 		$resultat = mysql_fetch_assoc($res);
 		return $resultat['Realisateur'];	
 	}
+	
+	/* L'image d'un film selon son numero de film
+	@param[in] $numFilm : numero de film 
+	@return le nom de l'image
+	*/
+	function getImage($numFilm) {
+		global $serv;
+		$req = "SELECT Image FROM films WHERE NoFilm = \"$numFilm\" ;";
+		$res = db_execSQL($req,$serv);
+		$resultat = mysql_fetch_assoc($res);
+		return $resultat['Image'];
+	}
     
     /* Permet d'obtenir la liste de tous les abonnes ainsi que leurs informations
     @return : Retourne la liste des abonnes
@@ -137,9 +149,13 @@
         $res = db_execSQL($req,$serv);
     }
 	
-    function insertFilm($numero,$titre,$nationalite,$realisateur,$couleur,$annee,$genre,$duree,$synopsis){
+	/* Ajoute un film
+	@param[in] $num : numéro du film
+	...
+	*/
+    function insertFilm($numero,$titre,$nationalite,$realisateur,$couleur,$annee,$genre,$duree,$synopsis,$image){
 		global $serv;
-		$req = "INSERT INTO films VALUES($numero,'$titre','$nationalite','$realisateur','$couleur','$annee','$genre','$duree','$synopsis');";
+		$req = "INSERT INTO films VALUES($numero,'$titre','$nationalite','$realisateur','$couleur','$annee','$genre','$duree','$synopsis','$image');";
 		$res = db_execSQL($req,$serv);
 	}
 ?>

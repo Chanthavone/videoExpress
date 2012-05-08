@@ -25,8 +25,9 @@
 		$cookie = true;
 	}
 	else{
-		exit("Impossible de se connecter");
+		header("Location: index.php?module=identificationD");
 	}
+
 	//on appelle la fonction de verification
 	$existeAbonne = verifAbonnes($nom,$pass);
 	
@@ -39,16 +40,19 @@
 		}	
 		//on recupere les emprunts
 		$emprunts = getEmprunts($pass);
+		
 		//si il en a on affiche, sinon on affiche un message
 		if(getNbEmprunts($pass)>0){
 			echo '<div id="liste_film">';
 				foreach($emprunts as $emprunt){
+					//On récupère l'image du film
+					$image = getImage($emprunt['NoFilm']);
 					echo '<div id="bloc_film">';
 						echo '<div id="bloc_film_image">';
-							echo '<img src="commun/images/interrogation.png" height="120" width="90" />';
+							echo '<img src="commun/images/films/'.$image.'" height="120" width="90" />';
 						echo '</div>';
 						echo '<div id="bloc_film_descriptif">';
-							echo '<h4>'.getTitre($emprunt['NoFilm']).'</h4><br />
+							echo '<h4><a>'.getTitre($emprunt['NoFilm']).'</a></h4><br />
 								Réalisateur : <em>'.getRealisateur($emprunt['NoFilm']).'</em><br />
 								Date d\'emprunt : <em>'.$emprunt['d'].'</em><br />
 								Numéro d\'exemplaire : <em>'.$emprunt['NoExemplaire'].'</em><br />

@@ -16,7 +16,10 @@
 	
 	if(isset($_POST['noFilm'])){
 		$numFilm = $_POST['noFilm'];
-		setcookie("selection[$num]",$numFilm,time() + $unMois);
+        (isset($_POST['DVD'])) ? $support = 'DVD': $support = 'VHS';
+        $infoFilm = array($numFilm,$support);
+        
+		setcookie("selection[$num]",serialize($infoFilm) ,time() + $unMois);
 		echo '<h3>Film ajouté </h3>';
 	}
 ?>

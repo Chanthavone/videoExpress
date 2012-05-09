@@ -6,9 +6,11 @@
 	
 	//on copie les numeros sauf le numero du film a supprimer
 	for($i = 1 ; $i <= $nbFilms ; ++$i){
-		$numFilm = $_COOKIE['selection'][$i];
-		if($numFilmSupp <> $numFilm){	
-			setcookie("selection[$j]",$numFilm);
+        $infosFilm = unserialize($_COOKIE['selection'][$i]);
+        $numFilm = $infosFilm[0];
+		if($numFilmSupp <> $numFilm){
+            $infoFilm = array($numFilm,$infosFilm[1]);
+			setcookie("selection[$j]",serialize($infoFilm));
 			$j++;
 		}
 	}

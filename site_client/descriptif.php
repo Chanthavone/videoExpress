@@ -39,7 +39,8 @@
 						//Ajout selection
 						echo '<form action="index.php?module=ajoutSelection" method="post">
 							<input type="hidden" name="noFilm" value="'.$film["NoFilm"].'" />
-							<input type="submit" class="bouton" value="Ajouter au panier" />
+							<input type="submit" name="VHS" class="bouton" value="Ajouter au panier VHS" />
+                            <input type="submit" name="DVD" class="bouton" value="Ajouter au panier DVD" />
 							</form>
 							<br />';
 						//Voir selection	

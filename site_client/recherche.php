@@ -56,7 +56,8 @@
 							echo '<div id="bloc_film_selection_ajout">';
 							echo '<td><form action="index.php?module=ajoutSelection" method="post">
 										<input type="hidden" name="noFilm" value="'.$search["NoFilm"].'" />
-										<input type="submit" class="bouton" value="Ajouter au panier" />
+                                        <input type="submit" name="VHS" class="bouton" value="Ajouter au panier VHS" />
+                                        <input type="submit" name="DVD" class="bouton" value="Ajouter au panier DVD" />
 								</form></td></tr>';
 					echo '</div></div></div>';
 					echo '<hr>';

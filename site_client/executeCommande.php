@@ -20,23 +20,19 @@
 				$support = $_POST["support$i"];
 				$noExemplaire = getNoExemplaire($noFilm,$support,$codeAbonne);
 			}
-			echo 'On initialise les variables <br />';
-			
+            
 			//MAJ du statut de la cassette
 			majStatut($noFilm,$noExemplaire,'empruntee');
-			echo 'MAJ du statut de la cassette <br />';
 			
 			//MAJ de NbCassette de l'emprunteur
 			majNbCassettes($codeAbonne,'+1');
-			echo 'MAJ de NbCassette de l\'emprunteur <br />';
 			
 			//on supprime l'emprunt reservee
 			deleteEmpRes($noFilm,$noExemplaire);
-			echo 'On supprime l\'emprunt reservee <br />';
 			
 			//On insert l'emprunt de la cassette
 			insertEmpRes($noFilm,$noExemplaire,$codeAbonne);
-			echo 'On insert l\'emprunt de la cassette <br />';
+            
 			//si on commmande par le biais du panier, on supprime le cookie
 			if(isset($_POST['panier'])){
 				//on initialise les variables
@@ -56,7 +52,7 @@
 				setcookie("selection[0]", $j - 1);
 			}
 			
-			echo 'Commende bien effectué ! ';
+			echo 'Commende bien effectuée ! ';
 				
 			//Lien de retour
 			echo '<a href="index.php?module=commande">Retour</a>';

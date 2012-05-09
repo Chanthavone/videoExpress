@@ -1,7 +1,7 @@
 ﻿<?php if($_COOKIE['identite'][2] == 'abonne'){ ?>
 		<ul id="menuClient">
 			<li> <a href="index.php?module=detenues">Videos détenues</a> </li>
-			<li> <a href="index.php?module=commande">Vos commandes</a> </li>
+			<li> <a href="index.php?module=commande">Commander un film</a> </li>
 			<li> <a href="index.php?module=deconnexion">Déconnexion</a> </li>
 		</ul>
 <?php }

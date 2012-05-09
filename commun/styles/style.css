@@ -218,6 +218,10 @@ h2 {
 	margin-top:5px;
 }
 
+a {
+    text-decoration:none;
+}
+
 .bouton {
 	display: block;
 	height: 25px; 

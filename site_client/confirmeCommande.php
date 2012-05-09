@@ -14,14 +14,32 @@
 	//on verifie qu'il y'a pas de reservation valable depuis plus de 5 minutes
 	reservationValable();
 	 
+    echo "<br /><div id='intro'>
+            Voici le récapitulatif de votre commande. <br />
+            Veuillez confirmer les films à commander. <br />
+            <br class='blank' />
+        </div>"; 
+    
+    $color = true;
 	$max = 3; $pass = $_POST['pass'];
 	echo '<form action="index.php?module=executeCommande" method="post">';
 		//on affiche un tableau
-		echo '<table border="1">';
-			echo '<tr><td>Numéro film</td><td>Titre</td><td>Disponibilité</td><td>Commander ?</td></tr>';
+		echo '<table class="tableColor">';
+			echo '<tr><th>Numéro film</th><th>Titre</th><th>Disponibilité</th><th>Commander ?</th></tr>';
 			//pour chaque commande
 			for($i = 1 ; $i <= $max ; ++$i){
 				if(isset($_POST['support'.$i.'']) && $_POST["numFilm$i"] <> "" ){
+                
+                    // On alterne la couleur de lignes
+                    if ($color == true) {
+                        $classcolor = "classblue";
+                        $color = false;
+                    }
+                    else {
+                        $classcolor = "classwhite";
+                        $color = true;
+                    }
+                    
 					//on recupere le film commande
 					$film = getfilm($_POST["numFilm$i"]);
 					
@@ -40,7 +58,7 @@
 					}
 					$noExemplaire = getNoExemplaire($noFilm,$support,$pass);
 					//on affiche une ligne tableau
-					echo '<tr><td>'.$film['NoFilm'].'</td>
+					echo '<tr class="'.$classcolor.'"><td>'.$film['NoFilm'].'</td>
 						<td>'.$film['Titre'].'</td>
 						<td>'.$disponiblite.'</td>
 						<td><input type="checkbox" '.$check.' name="numFilm'.$i.'" value="'.$noFilm.'" onchange="check()"/>
@@ -52,12 +70,12 @@
 			}
 		echo '</table>';
 		echo '<input type="hidden" name="pass" value="'.$pass.'" />';
-		echo '<input type="submit" id="commander" value="Commander"/><label id="aucun_film"></label>';
+		echo '<input type="submit" id="commander" class="bouton" value="Commander"/><label id="aucun_film"></label>';
 	echo '</form>';
 	//on affiche le second formulaire
 	echo '<form action="index.php?module=commande" method="post">
 		<input type="hidden" name="pass" value="'.$pass.'" />
-		<input type="submit" value="Revoir le choix"/>
+		<input type="submit" class="bouton" value="Revoir le choix"/>
 		</form>';
 
 ?>

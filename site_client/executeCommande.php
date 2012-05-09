@@ -9,7 +9,9 @@
 	//Pour avoir la fonction de MAJ des emprunts
 	include("modele/modeleEmpres.php");
 	
-	for($i = 1 ; $i <= 3 ; ++$i){
+	$nbFilms = $_COOKIE['selection'][0];
+	for($i = 1 ; $i <= 3 ; $i++){
+
 		if(isset($_POST['numFilm'.$i.''])){
 			//on initialise les variables
 			$noFilm = $_POST['numFilm'.$i.''] ; $codeAbonne = $_POST['pass'];
@@ -30,27 +32,30 @@
 			//si on commmande par le biais du panier, on supprime le cookie
             //on initialise les variables
             $j = 1;
-            $nbFilms = $_COOKIE['selection'][0];
-            $numFilmSupp = $noFilm;
             
+            $numFilmSupp = $noFilm;
+            $existeCookie = false;
             //on copie les numeros sauf le numero du film a supprimer
-            for($i = 1 ; $i <= $nbFilms ; ++$i){
-                $infosFilm = unserialize($_COOKIE['selection'][$i]);
+            for($k = 1 ; $k <= $nbFilms ; ++$k){
+                $infosFilm = unserialize($_COOKIE['selection'][$k]);
                 $numFilm = $infosFilm[0];
                 if($numFilmSupp <> $numFilm){
                     $infoFilm = array($numFilm,$infosFilm[1]);
                     setcookie("selection[$j]",serialize($infoFilm));
                     $j++;
+					$existeCookie = true;
                 }
             }
             //ajuste le nombre total de film
-            setcookie("selection[0]", $j - 1);
-			
-			echo 'Commende bien effectuée ! ';
+			if($existeCookie){
+				$nbFilms--;
+				setcookie("selection[0]", $nbFilms);
 				
-			//Lien de retour
-			echo '<a href="index.php?module=commande">Retour</a>';
+			}
+
 		}
 	}
-
+	echo 'Commende bien effectuée ! ';
+	//Lien de retour
+	echo '<a href="index.php?module=commande">Retour</a>';
 ?>

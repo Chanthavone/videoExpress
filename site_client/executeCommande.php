@@ -13,14 +13,8 @@
 		if(isset($_POST['numFilm'.$i.''])){
 			//on initialise les variables
 			$noFilm = $_POST['numFilm'.$i.''] ; $codeAbonne = $_POST['pass'];
-			//Soit on est passé par le formulaire de commande ou de panier
-			if(isset($_POST['ex'.$i.'']))
-				$noExemplaire = $_POST['ex'.$i.''];
-			else{
-				$support = $_POST["support$i"];
-				$noExemplaire = getNoExemplaire($noFilm,$support,$codeAbonne);
-			}
-            
+            $noExemplaire = $_POST['ex'.$i.''];
+
 			//MAJ du statut de la cassette
 			majStatut($noFilm,$noExemplaire,'empruntee');
 			
@@ -34,23 +28,23 @@
 			insertEmpRes($noFilm,$noExemplaire,$codeAbonne);
             
 			//si on commmande par le biais du panier, on supprime le cookie
-			if(isset($_POST['panier'])){
-				//on initialise les variables
-				$j = 1;
-				$nbFilms = $_COOKIE['selection'][0];
-				$numFilmSupp = $noFilm;
-				
-				//on copie les numeros sauf le numero du film a supprimer
-				for($i = 1 ; $i <= $nbFilms ; ++$i){
-					$numFilm = $_COOKIE['selection'][$i];
-					if($numFilmSupp <> $numFilm){	
-						setcookie("selection[$j]",$numFilm);
-						$j++;
-					}
-				}
-				//ajuste le nombre total de film
-				setcookie("selection[0]", $j - 1);
-			}
+            //on initialise les variables
+            $j = 1;
+            $nbFilms = $_COOKIE['selection'][0];
+            $numFilmSupp = $noFilm;
+            
+            //on copie les numeros sauf le numero du film a supprimer
+            for($i = 1 ; $i <= $nbFilms ; ++$i){
+                $infosFilm = unserialize($_COOKIE['selection'][$i]);
+                $numFilm = $infosFilm[0];
+                if($numFilmSupp <> $numFilm){
+                    $infoFilm = array($numFilm,$infosFilm[1]);
+                    setcookie("selection[$j]",serialize($infoFilm));
+                    $j++;
+                }
+            }
+            //ajuste le nombre total de film
+            setcookie("selection[0]", $j - 1);
 			
 			echo 'Commende bien effectuée ! ';
 				

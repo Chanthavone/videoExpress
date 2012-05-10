@@ -55,7 +55,8 @@
 
 		}
 	}
-	echo 'Commende bien effectuée ! ';
+	echo '<h3>Commande bien effectuée ! </h3>';
+	header('Refresh: 1;URL=index.php?module=accueil');
 	//Lien de retour
 	echo '<a href="index.php?module=commande">Retour</a>';
 ?>

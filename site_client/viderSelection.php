@@ -10,4 +10,6 @@
 	for($i = 1 ; $i <= $nbCookie ; ++$i){
 		setcookie ("selection[$i]", "", 0);
 	}
+	echo '<h3>La panier a bien été vidé</h3>';
+	header('Refresh: 1;URL=index.php?module=accueil');
 ?>

@@ -64,7 +64,7 @@
 			echo '</div>';
 		}
 		else{
-			echo 'Aucun Emprunt ';
+			echo '<h3>Aucun Emprunt</h3>';
 		}
 	}
 	else{

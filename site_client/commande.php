@@ -62,7 +62,8 @@
                     echo '<legend>Formulaire de commande</legend>';
                     echo '<table>';
                     //si on commande a partir du panier
-                    if(isset($_POST['commandePanier'])){
+                    if(isset($_POST['commandePanier']) || 
+					($module == "identificationC" && isset($_COOKIE['selection']) && $_COOKIE['selection'][0]!=0) ){
                         
                         for($i = 1 ; $i <= $nbCommandeRestant ; ++$i){
                             if($_COOKIE['selection'][0] >= $i){
@@ -90,7 +91,7 @@
                             }
                         }                        
                     }
-                    else{
+                    else{ //si on commande normalement, c'est a dire à partir du bouton commande
                         for($i = 1 ; $i <= $nbCommandeRestant ; ++$i){
                             echo '<tr><td><label>Numéro du film '.$i.' : </label><input type="text" onblur="purge(this)" name="numFilm'.$i.'" /></td>
                                 <td><label>Support'.$i.' : </label><input type="radio" name="support'.$i.'" value="dvd" /><label>DVD</label>

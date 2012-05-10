@@ -35,11 +35,14 @@
 		setcookie("identite[0]", $nom);
 		setcookie("identite[1]", $pass);
 		setcookie("identite[2]", $statut);
-		// On redirige vers la page d'accueil
+	}
+	
+	// On redirige vers la page associé
+	if(isset($_POST['identificationC'])){
+		header('Location: index.php?module=identificationC');
+	}
+	else{
 		header('Location: index.php?module=accueil');
 	}
-	else {
-		// On redirige vers la page d'accueil
-		header('Location: index.php?module=accueil');
-	}
+
 ?>

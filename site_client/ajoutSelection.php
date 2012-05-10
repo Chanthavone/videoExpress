@@ -21,5 +21,6 @@
         
 		setcookie("selection[$num]",serialize($infoFilm) ,time() + $unMois);
 		echo '<h3>Film ajouté </h3>';
+		header('Refresh: 1;URL=index.php?module=accueil');
 	}
 ?>

@@ -8,11 +8,15 @@
 	require_once("modele/modeleEmpres.php");
 	
 	echo '<div id="contenu_panier">';
-	if(isset($_COOKIE['selection']) && $_COOKIE['selection'][0]!=0)
+	if(isset($_COOKIE['selection']) && $_COOKIE['selection'][0]!=0){
 		echo 'Vos articles ajoutés : </br>';
-	else
+		$hrefDetail = "index.php?module=voirSelection";
+		$hrefVider = "index.php?module=viderSelection";
+	}
+	else{
 		echo 'Aucun article ajouté </br>';
-	
+		$hrefDetail = "#"; $hrefVider = "#";
+	}
 	//si le cookie est defini ou nbfilms != 0
 	if(isset($_COOKIE['selection']) && $_COOKIE['selection'][0]!=0){
 		for($i = 1 ; $i <= $_COOKIE['selection'][0] ; ++$i){
@@ -33,9 +37,9 @@
 <div id="option_panier">
 	<div id="option_panier_gauche">
 		<!-- Lien du détail du panier -->
-		<a href="index.php?module=voirSelection">Détails du panier</a><br />
+		<a href="<?php echo $hrefDetail;?>">Détails du panier</a><br />
 		<!-- Lien vider selection -->
-		<a href="index.php?module=viderSelection">Vider le panier</a><br />
+		<a href="<?php echo $hrefVider;?>">Vider le panier</a><br />
 	</div>
 	<div id="option_panier_droite">
         <input type="hidden" name="commandePanier"/>
@@ -52,19 +56,20 @@
 	else
 		$nbCommandeRestant = 0;
 	if(!isset($_COOKIE['identite']) && isset($_COOKIE['selection']) && $_COOKIE['selection'][0] <> 0){ //si on est pas connecté
-		echo "<label id='message_js'><img border='0' src='commun/images/warning.png' /> Vous devez être connecté pour commander";
-		?><script>error=true ;</script><?php
+		//echo "<label id='message_js'><img border='0' src='commun/images/warning.png' /> Vous devez être connecté pour commander";
+		//echo '<script>error=true ;</script>';
+		//header('Location: index.php?module=identificationD');
 	}
-	elseif(isset($_COOKIE['selection']) && $_COOKIE['selection'][0] == 0){
-		?><script>error=true ;</script><?php
+	elseif((isset($_COOKIE['selection']) && $_COOKIE['selection'][0] == 0) || !isset($_COOKIE['selection'])){
+		echo '<script>error=true ;</script>';
 	}
 	elseif($nbCommandeRestant == 0 && isset($_COOKIE['identite'])){	
 		echo "<label id='message_js'><img border='0' src='commun/images/warning.png' /> Vous ne pouvez pas commander, car vous détenez déjà 3 cassettes";
-		?><script>error=true ;</script><?php
+		echo '<script>error=true ;</script>';
 	}
 	elseif(isset($_COOKIE['selection']) && $nbCommandeRestant < $_COOKIE['selection'][0]){ //si notre panier est superieur au nombre de commandes restantes	
 		echo "<label id='message_js'><img border='0' src='commun/images/warning.png' /> Vous avez trop de commande, donc pas de commande";
-		?><script>error=true ;</script><?php
+		echo '<script>error=true ;</script>';
 	}
 ?>
 </div>

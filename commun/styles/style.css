@@ -443,6 +443,10 @@ a {
 	color:black;
 	margin-left : 10px;
 }
+#page:hover{
+	color:#6589D6;
+	font-size: 26px;
+}
 
 #menuClient {
 	padding : 0;

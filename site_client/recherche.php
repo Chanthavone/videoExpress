@@ -17,7 +17,7 @@
 		else{
 			$titre = $_SESSION['recherche']['titre'] ; $support	= $_SESSION['recherche']['support']; 
 			$disponibilite 	= $_SESSION['recherche']['disponibilite']; $genre = $_SESSION['recherche']['genre'] ; 
-			$realisateur = 	$_SESSION['recherche']['realisateur'] 	; $acteur = $_SESSION['recherche']['acteur'];
+			$realisateur = 	$_SESSION['recherche']['realisateur'] 	; $acteur = $_SESSION['recherche']['acteur']; 
 		}
 		//on appelle la fonction de recherche
 		$recherche = rechercheFilm($titre,$support,$disponibilite,$genre,$realisateur,$acteur,0,0);
@@ -29,17 +29,21 @@
 			$nbpages = ceil($total/$nombre);
 			if($_GET['page'] >= $total)
 				header("location:index.php?module=error&action=error404");
-			else
+			else{
 				$page= $_GET['page'];
+				$noPage = round($page / 4) + 1;
+			}
 		}
-		else//sinon on l'initialise
+		else{//sinon on l'initialise
 			$page = 0;
+			$noPage = 1;
+		}
 		//on re-appelle la fonction de recherche cette fois ci avec la limite
 		$recherche = rechercheFilm($titre,$support,$disponibilite,$genre,$realisateur,$acteur,$page,$nombre);	
 
 		//Si on a des resultats on affiche, sinon on affiche un message d'erreur
 		if($total > 0){
-			echo '<h2 id="titre_rech">Resultat de la recherche ('.$total.') </h2>';
+			echo '<h2 id="titre_rech">Resultat de la recherche ('.$total.') - Page n°'.$noPage.'</h2>';
 			echo '<div id="liste_film">';
 				foreach($recherche as $search){
 					echo '<div id="bloc_film">';

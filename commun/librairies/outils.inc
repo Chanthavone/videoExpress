@@ -98,16 +98,16 @@
 
 		if($page != 0) {
 		   $lien=''.$lien.'<a href="index.php?'.$donnée_a_transmettre.'='.$limitePrecedente.'">
-		   <img src="commun/images/precedent.png" alt="précédent" title="precedent" border="0"/></a>';
+		   <img src="commun/images/precedent.png" alt="Précédent" title="Précédent" border="0"/></a>';
 		}
-		
-		$pagination= Pagination($nb,$total,$donnée_a_transmettre);
-		$lien=' '.$lien.' '.$pagination.' ';
-		
-		$nbpages=ceil($total/$nb);
+		if(ceil($total/$nb) > 1){
+			$pagination= Pagination($nb,$total,$donnée_a_transmettre);
+			$lien=' '.$lien.' '.$pagination.' ';
+		}
+		//$nbpages=ceil($total/$nb);
 		if($limiteSuivante < $total) {
 			$lien=''.$lien.'<a href="index.php?'.$donnée_a_transmettre.'='.$limiteSuivante.'">
-			<img src="commun/images/suivant.png" alt="suivant" title="suivant" border="0"/></a>';       
+			<img src="commun/images/suivant.png" alt="Suivant" title="Suivant" border="0"/></a>';       
 		}
 		$lien=''.$lien.'</div> ';
 

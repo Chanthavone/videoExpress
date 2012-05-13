@@ -203,42 +203,81 @@ function ajoutAbonne() {
 	var banque = document.getElementById('banque');
 	var guichet = document.getElementById('guichet');
 	var compte = document.getElementById('compte');
+	var myForm = document.getElementById('formAjoutAbonne');
 	var erreur = false;
 	
 	if(code.value == ""){
-		document.getElementById('js_code').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrer un numéro de film";
+		document.getElementById('js_code').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrez un code abonne";
 		erreur = true;	
 	}
+	else
+		document.getElementById('js_code').innerHTML="<img border='0' src='commun/images/ok.gif' />";
+		
 	if(nom.value == ""){
-		document.getElementById('js_nom').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrer un numéro de film";
+		document.getElementById('js_nom').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrez un nom";
 		erreur = true;	
 	}
+	else
+		document.getElementById('js_nom').innerHTML="<img border='0' src='commun/images/ok.gif' />";
+		
 	if(prenom.value == ""){
-		document.getElementById('js_prenom').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrer un numéro de film";
+		document.getElementById('js_prenom').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrez un prénom";
 		erreur = true;	
 	}
+	else
+		document.getElementById('js_prenom').innerHTML="<img border='0' src='commun/images/ok.gif' />";
+		
 	if(rue.value == ""){
-		document.getElementById('js_rue').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrer un numéro de film";
+		document.getElementById('js_rue').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrez la rue";
 		erreur = true;	
 	}
+	else
+		document.getElementById('js_rue').innerHTML="<img border='0' src='commun/images/ok.gif' />";
+		
 	if(codepostal.value == ""){
-		document.getElementById('js_codepostal').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrer un numéro de film";
+		document.getElementById('js_codepostal').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrez le code postal (numérique)";
 		erreur = true;	
 	}
+	else
+		document.getElementById('js_codepostal').innerHTML="<img border='0' src='commun/images/ok.gif' />";
+		
 	if(ville.value == ""){
-		document.getElementById('js_ville').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrer un numéro de film";
+		document.getElementById('js_ville').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrez la ville";
 		erreur = true;	
 	}
+	else
+		document.getElementById('js_ville').innerHTML="<img border='0' src='commun/images/ok.gif' />";
+		
+	if(!email.value.match(/^.+\@.+\..+$/)) {
+		document.getElementById('js_email').innerHTML="<img border='0' src='commun/images/error.gif' /> L'email n'est pas valide";
+		erreur = true;
+	}
+	
 	if(banque.value == ""){
-		document.getElementById('js_banque').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrer un numéro de film";
+		document.getElementById('js_banque').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrez la banque (numérique)";
 		erreur = true;	
 	}
+	else
+		document.getElementById('js_banque').innerHTML="<img border='0' src='commun/images/ok.gif' />";
+		
 	if(guichet.value == ""){
-		document.getElementById('js_guichet').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrer un numéro de film";
+		document.getElementById('js_guichet').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrez le guichet (numérique)";
 		erreur = true;	
 	}
+	else
+		document.getElementById('js_guichet').innerHTML="<img border='0' src='commun/images/ok.gif' />";
+		
 	if(compte.value == ""){
-		document.getElementById('js_compte').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrer un numéro de film";
+		document.getElementById('js_compte').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrez le compte";
 		erreur = true;	
+	}
+	else
+		document.getElementById('js_compte').innerHTML="<img border='0' src='commun/images/ok.gif' />";
+		
+	if(erreur == true) {	
+		myForm.addEventListener('submit', function(e) { e.preventDefault(); }, true);
+	}
+	else {
+		myForm.submit();
 	}
 }

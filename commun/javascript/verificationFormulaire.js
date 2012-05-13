@@ -187,3 +187,58 @@ function panier(erreur){
 		myForm.submit();
 	}
 }
+
+function ajoutAbonne() {
+	var code = document.getElementById('code');
+	var nom = document.getElementById('nom');
+	var prenom = document.getElementById('prenom');
+	var rue = document.getElementById('rue');
+	var codepostal = document.getElementById('codepostal');
+	var ville = document.getElementById('ville');
+	var batiment = document.getElementById('batiment');
+	var etage = document.getElementById('etage');
+	var digicode = document.getElementById('digicode');
+	var telephone = document.getElementById('telephone');
+	var email = document.getElementById('email');
+	var banque = document.getElementById('banque');
+	var guichet = document.getElementById('guichet');
+	var compte = document.getElementById('compte');
+	var erreur = false;
+	
+	if(code.value == ""){
+		document.getElementById('js_code').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrer un numéro de film";
+		erreur = true;	
+	}
+	if(nom.value == ""){
+		document.getElementById('js_nom').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrer un numéro de film";
+		erreur = true;	
+	}
+	if(prenom.value == ""){
+		document.getElementById('js_prenom').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrer un numéro de film";
+		erreur = true;	
+	}
+	if(rue.value == ""){
+		document.getElementById('js_rue').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrer un numéro de film";
+		erreur = true;	
+	}
+	if(codepostal.value == ""){
+		document.getElementById('js_codepostal').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrer un numéro de film";
+		erreur = true;	
+	}
+	if(ville.value == ""){
+		document.getElementById('js_ville').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrer un numéro de film";
+		erreur = true;	
+	}
+	if(banque.value == ""){
+		document.getElementById('js_banque').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrer un numéro de film";
+		erreur = true;	
+	}
+	if(guichet.value == ""){
+		document.getElementById('js_guichet').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrer un numéro de film";
+		erreur = true;	
+	}
+	if(compte.value == ""){
+		document.getElementById('js_compte').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrer un numéro de film";
+		erreur = true;	
+	}
+}

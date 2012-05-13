@@ -167,7 +167,6 @@ h2 {
 
 h3 {
 	text-align: center;
-	
 }
 
 #footer{
@@ -385,7 +384,8 @@ a {
 	margin-bottom:5px;
 }
 
-.type_recherche h3{
+.formulaire h3{
+	text-align:left;
 	margin-top:0px;
 	margin-bottom:5px;
 	color:#6589D6;
@@ -442,10 +442,6 @@ a {
 	font-weight:bold;
 	color:black;
 	margin-left : 10px;
-}
-#page:hover{
-	color:#6589D6;
-	font-size: 26px;
 }
 
 #menuClient {

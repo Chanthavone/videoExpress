@@ -113,4 +113,33 @@
 
 		return $lien;
 	}
+	
+	/* Vérifie le formulaire de création de l'abonne
+	@param[in] $code : Le code de l'abonne
+	@param[in] $nom : Le nom de l'abonne
+	...
+	@return true s'il n'y a pas d'erreur sinon false
+	*/
+	function verifInsertionAbonne($code,$nom,$prenom,$rue,$codepostal,$ville,$batiment,$etage,$digicode,$telephone,$email,$banque,$guichet,$compte) {
+		// Regex
+		$regnum = "/^[0-9]+$/";
+		$regemail = "/^.+\@.+\..+$/";
+		
+		// Si un de ces champs est vide, on retourne false
+		if (empty($code) || empty($nom) || empty($prenom) || empty($rue) || empty($codepostal) || empty($ville) || empty($banque) || empty($guichet) || empty($compte)) {
+			return false;
+		}
+		
+ 		// Si ces champs ne sont pas rempli avec des caractères numériques, on retourne false
+		if (!preg_match($regnum,$codepostal) || (!empty($digicode) && !preg_match($regnum,$digicode)) || 
+			(!empty($telephone) && !preg_match($regnum,$telephone)) || !preg_match($regnum,$banque) || !preg_match($regnum,$guichet)) {
+			return false;
+		}
+		
+		// Si le champs email ne correspond pas au format d'une adresse mail, on retourne false
+		if (!empty($email) && !preg_match($regemail,$email)) {
+			return true;
+		}
+		return true;
+	}
 ?>

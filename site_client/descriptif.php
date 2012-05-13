@@ -43,10 +43,6 @@
                             <input type="submit" name="DVD" class="bouton" value="Ajouter au panier DVD" />
 							</form>
 							<br />';
-						//Voir selection	
-						echo '<form action="index.php?module=voirSelection" method="post">
-							<input type="submit" class="bouton" value="Voir le panier" />
-							</form>';
 					echo '</div>';
 					echo '<div id="descriptif_film_resume">';
 						echo '<h4 class="intitule">Résumé : </h4><br />';

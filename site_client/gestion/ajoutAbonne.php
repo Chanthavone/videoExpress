@@ -23,9 +23,10 @@
 		// Si le formulaire a été correctement rempli, on insère l'abonné dans la bdd sinon message d'erreur
 		if (verifInsertionAbonne($code,$nom,$prenom,$rue,$codepostal,$ville,$batiment,$etage,$digicode,$telephone,$email,$banque,$guichet,$compte)) {
 			insertAbonne($code,$nom,$prenom,$rue,$codepostal,$ville,$batiment,$etage,$digicode,$telephone,$email,$banque,$guichet,$compte);
+			header("Location: index.php?module=gestion&admin=message&mess=ajoutAboOk");
 		}
 		else {
-			echo 'Un des champs saisis est incorrect';
+			header("Location: index.php?module=gestion&admin=message&mess=ajoutAboNok");
 		}
     }
 ?>

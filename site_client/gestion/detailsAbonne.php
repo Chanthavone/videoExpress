@@ -5,9 +5,12 @@
 <?php
     include("modele/modeleAbonnes.php");
     
+	// On récupère le numéro d'abonné de la personne que l'on recherche
     $num = $_GET['num'];
+	// On récupère les informations de l'abonné recherché
     $abonne = getUnAbonne($num);
     
+	// On affiche ses détails
     echo "<h3 class='sousTitre'>Détails de l'abonné ".$abonne['Nom']." ".$abonne['Prenom']."</h3>";
     
     echo "<table class='tableColor' id='tableDetailsAbonne'>";

@@ -57,6 +57,18 @@
             case "detailsAbonne" :
                 require("site_client/gestion/detailsAbonne.php");
             break;
+			
+			case "modifierFilm" :
+                require("site_client/gestion/modifierFilm.php");
+            break;
+            
+            case "modifierAbonne" :
+                require("site_client/gestion/modifierAbonne.php");
+            break;
+			
+			case "message" :
+				require("site_client/gestion/message.php");
+			break;
             
             case "retour" :
                 require("site_client/gestion/retour.php");

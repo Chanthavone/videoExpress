@@ -30,14 +30,14 @@
 			//On supprime l'emprunt de la cassette
 			deleteEmpRes($noFilm,$noExemplaire);
 			
-			echo '<h3>Retour bien effectué !</h3>';
+			header("Location: index.php?module=gestion&admin=message&mess=retourOk");
 		}
 		else {
-			echo '<h3>Le film ou l\'exemplaire saisi n\'a pas été emprunté. </h3>';
+			header("Location: index.php?module=gestion&admin=message&mess=retourNok");
 		}
 	}
 	else{
-		echo '<h3>Impossible de retourner la cassette</h3>';
+		header("Location: index.php?module=gestion&admin=message&mess=retourImpossible");
 	}
 	//Lien de retour
 	echo '<a href="index.php?module=gestion&admin=accueilRetour">Retour</a>';	

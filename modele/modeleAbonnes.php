@@ -85,4 +85,33 @@
         $resultat = mysql_fetch_assoc($res);
         return $resultat;
     }
+	
+	/* Met à jour un abonne
+	@param[in] $code : le code client de l'abonne
+	@param[in] $nom : le nom de l'abonne
+	@param[in] $prenom : le prenom de l'abonne
+    @param[in] $rue : la rue de l'abonne
+    @param[in] $codepostal : le code postal de l'abonne
+    ....
+	*/
+	function updateAbonne($code,$nom,$prenom,$rue,$codepostal,$ville,$batiment=null,$etage=null,$digicode=null,$tel=null,$mail=null,$banque,$guichet,$compte){
+		global $serv;
+		$req = "UPDATE abonnes SET 
+		Code = '$code',
+		Nom = '$nom',
+		Prenom = '$prenom',
+		NoRue = '$rue',
+		CodePostal = '$codepostal',
+		Ville = '$ville',
+		Batiment = '$batiment',
+		Etage = '$etage',
+		Digicode = '$digicode',
+		Telephone = '$tel',
+		Email = '$mail',
+		Banque = $banque,
+		Guichet = $guichet,
+		Compte = '$compte'
+		WHERE Code = '$code';";
+		$res = db_execSQL($req,$serv);
+	}
 ?>

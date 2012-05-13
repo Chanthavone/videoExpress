@@ -37,7 +37,7 @@
               <td>".$k['Telephone']."</td><td>".$k['Email']."</td>
               <td>".$k['NbCassettes']."</td>
               <td><div id='options'><a href='index.php?module=gestion&admin=detailsAbonne&num=".$k['Code']."' title='Voir les détails'><img src='commun/images/loupe.png' alt='Détails' width='20' height='20'/></a>
-              <a href='#' title='Modifier'><img src='commun/images/crayon.png' alt='Modifier' width='20' height='20'/></a>
+              <a href='index.php?module=gestion&admin=modifierAbonne&num=".$k['Code']."' title='Modifier'><img src='commun/images/crayon.png' alt='Modifier' width='20' height='20'/></a>
               <a href='index.php?module=gestion&admin=supprimerAbonne&num=".$k['Code']."' title='Supprimer' onclick=\"return(confirm('Voulez-vous vraiment supprimer cet abonné?')); \"><img src='commun/images/corbeille.gif' alt='Supprimer' width='20' height='20'/></a>
               </div></td></tr>";
     }

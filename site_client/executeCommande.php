@@ -9,7 +9,7 @@
 	//Pour avoir la fonction de MAJ des emprunts
 	include("modele/modeleEmpres.php");
 	
-	$nbFilms = $_COOKIE['selection'][0];
+	$nbFilms = $_COOKIE['selection'][0];$unMois = 2629800;
 	for($i = 1 ; $i <= 3 ; $i++){
 
 		if(isset($_POST['numFilm'.$i.''])){
@@ -36,20 +36,26 @@
             $numFilmSupp = $noFilm;
             $existeCookie = false;
             //on copie les numeros sauf le numero du film a supprimer
-            for($k = 1 ; $k <= $nbFilms ; ++$k){
-                $infosFilm = unserialize($_COOKIE['selection'][$k]);
-                $numFilm = $infosFilm[0];
-                if($numFilmSupp <> $numFilm){
-                    $infoFilm = array($numFilm,$infosFilm[1]);
-                    setcookie("selection[$j]",serialize($infoFilm));
-                    $j++;
-					$existeCookie = true;
-                }
-            }
+            if($nbFilms > 1){
+				for($k = 1 ; $k <= $nbFilms ; ++$k){
+					$infosFilm = unserialize($_COOKIE['selection'][$k]);
+					$numFilm = $infosFilm[0];        
+					if($numFilmSupp <> $numFilm){			
+						$filmInfo = array($numFilm,$infosFilm[1]);
+						setcookie("selection[$j]",serialize($filmInfo));
+						$j++;
+						$existeCookie = true;
+					}
+				}
+			}
+			else{
+				setcookie("selection[1]","");
+				$existeCookie = true;
+			}	
             //ajuste le nombre total de film
-			if($existeCookie){
+			if($existeCookie && $nbFilms > 0){
 				$nbFilms--;
-				setcookie("selection[0]", $nbFilms);
+				setcookie("selection[0]", $nbFilms,time() + $unMois);
 				
 			}
 
@@ -58,5 +64,5 @@
 	echo '<h3>Commande bien effectuée ! </h3>';
 	header('Refresh: 1;URL=index.php?module=accueil');
 	//Lien de retour
-	echo '<a href="index.php?module=commande">Retour</a>';
+	//echo '<a href="index.php?module=commande">Retour</a>';
 ?>

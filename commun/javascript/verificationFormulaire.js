@@ -238,6 +238,10 @@ function ajoutAbonne() {
 		document.getElementById('js_codepostal').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrez le code postal (numérique)";
 		erreur = true;	
 	}
+    else if(!codepostal.value.match(/^[0-9]{,5}$/)){
+        document.getElementById('js_codepostal').innerHTML="<img border='0' src='commun/images/error.gif' /> Le code postal (5 chiffres)";
+        erreur = true;		
+    }
 	else
 		document.getElementById('js_codepostal').innerHTML="<img border='0' src='commun/images/ok.gif' />";
 		
@@ -257,6 +261,10 @@ function ajoutAbonne() {
 		document.getElementById('js_banque').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrez la banque (numérique)";
 		erreur = true;	
 	}
+    else if(!banque.value.match(/^[0-9]$/)){
+        document.getElementById('js_banque').innerHTML="<img border='0' src='commun/images/error.gif' /> Doit être numérique";
+        erreur = true;		
+    }
 	else
 		document.getElementById('js_banque').innerHTML="<img border='0' src='commun/images/ok.gif' />";
 		
@@ -264,6 +272,10 @@ function ajoutAbonne() {
 		document.getElementById('js_guichet').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrez le guichet (numérique)";
 		erreur = true;	
 	}
+    else if(!guichet.value.match(/^[0-9]$/)){
+        document.getElementById('js_guichet').innerHTML="<img border='0' src='commun/images/error.gif' /> Doit être numérique";
+        erreur = true;		
+    }
 	else
 		document.getElementById('js_guichet').innerHTML="<img border='0' src='commun/images/ok.gif' />";
 		
@@ -274,6 +286,51 @@ function ajoutAbonne() {
 	else
 		document.getElementById('js_compte').innerHTML="<img border='0' src='commun/images/ok.gif' />";
 		
+	if(erreur == true) {	
+		myForm.addEventListener('submit', function(e) { e.preventDefault(); }, true);
+	}
+	else {
+		myForm.submit();
+	}
+}
+
+function ajoutFilm() {
+	
+    var nofilm = document.getElementById('nofilm');
+    var titre = document.getElementById('titreForm');
+    var annee = document.getElementById('annee');
+    var duree = document.getElementById('duree');
+	var myForm = document.getElementById('formAjoutFilm');
+	var erreur = false;
+    
+    if(nofilm.value == ""){
+		document.getElementById('js_nofilm').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrez le numéro de film";
+		erreur = true;	
+	}
+	else
+		document.getElementById('js_nofilm').innerHTML="<img border='0' src='commun/images/ok.gif' />";
+        
+    if(titre.value == ""){
+		document.getElementById('js_titre').innerHTML="<img border='0' src='commun/images/error.gif' /> Entrez le titre du film";
+		erreur = true;	
+	}
+	else
+		document.getElementById('js_titre').innerHTML="<img border='0' src='commun/images/ok.gif' />";
+
+    if((annee.value.length!=0) && (!annee.value.match(/^[0-9]+$/))){
+		document.getElementById('js_annee').innerHTML="<img border='0' src='commun/images/error.gif' /> L'année doit etre un nombre";
+		erreur = true;	
+	}
+	else
+		document.getElementById('js_annee').innerHTML="<img border='0' src='commun/images/ok.gif' />";
+        
+    if((duree.value.length!=0) && (!duree.value.match(/^[0-9]+$/))){
+		document.getElementById('js_duree').innerHTML="<img border='0' src='commun/images/error.gif' /> La durée doit etre un nombre";
+		erreur = true;	
+	}
+	else
+		document.getElementById('js_duree').innerHTML="<img border='0' src='commun/images/ok.gif' />";
+	
 	if(erreur == true) {	
 		myForm.addEventListener('submit', function(e) { e.preventDefault(); }, true);
 	}

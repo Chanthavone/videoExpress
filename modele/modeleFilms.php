@@ -155,7 +155,8 @@
 	*/
     function insertFilm($numero,$titre,$nationalite,$realisateur,$couleur,$annee,$genre,$duree,$synopsis,$image){
 		global $serv;
-		$req = "INSERT INTO films VALUES($numero,'$titre','$nationalite','$realisateur','$couleur','$annee','$genre','$duree','$synopsis','$image');";
-		$res = db_execSQL($req,$serv);
+		$req = "INSERT INTO films VALUES($numero,'$titre','$nationalite','$realisateur','$couleur','$annee','$genre','$duree',\"$synopsis\",'$image');";
+		echo $req;
+        $res = db_execSQL($req,$serv);
 	}
 ?>

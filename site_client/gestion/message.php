@@ -34,6 +34,14 @@
 		case "retourImpossible" : 
 			echo "Impossible de retourner la cassette.";
 		break;
+        
+        case "ajoutFilmOk" : 
+			echo "La film a bien été ajouté dans la base de données.";
+		break;
+		
+		case "ajoutFilmNok" : 
+			echo "Un des champs saisis est incorrect.";
+		break;
 		
 		default:
 			require("site_client/accueil.php");	

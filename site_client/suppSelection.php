@@ -4,7 +4,7 @@
 <?php
 	
 	if(count($_POST)>0){
-		$j = 1;
+		$j = 1;$unMois = 2629800;
 		$nbFilms = $_COOKIE['selection'][0];
 		//copie les numeros dont la case n'a pas ete coche
 		for($i = 1 ; $i <= $nbFilms ; ++$i){
@@ -15,7 +15,7 @@
 			}
 		}
 		//ajuste le nombre total de film
-		setcookie("selection[0]", $j - 1);
+		setcookie("selection[0]", $j - 1,time() + $unMois);
 		//affiche le nombre de film supprimé
 		$nbFilmSupprime = $nbFilms - ($j - 1);
 		echo '<h3>Nombre de films supprimés = '.$nbFilmSupprime.'</h3>';	

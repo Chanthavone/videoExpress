@@ -142,4 +142,15 @@
 		}
 		return true;
 	}
+    
+    function verifInsertionFilm($nofilm,$titre,$annee,$duree) {
+        $regnum = "/^[0-9]+$/";
+        if (empty($nofilm) || empty($titre)) {
+            return false;
+        }
+        if ((!empty($annee) && !preg_match($regnum,$annee)) || (!empty($duree) && !preg_match($regnum,$duree))) {
+            return false;
+        }
+        return true;
+    }
 ?>

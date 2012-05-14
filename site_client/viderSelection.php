@@ -4,7 +4,8 @@
 <?php
 	//met à 0 le nombre de films stocké en selection[0]
 	$nbCookie = $_COOKIE['selection'][0];
-	setcookie('selection[0]',0);
+	$unMois = 2629800;
+	setcookie('selection[0]',0,time() + $unMois);
 	
 	//transforme le cookie selection en cookie temporaire
 	for($i = 1 ; $i <= $nbCookie ; ++$i){

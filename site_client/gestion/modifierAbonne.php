@@ -72,6 +72,6 @@
 			<label for="compte" class="label_recherche">Compte</label><input type="text" name="compte" id="compte" value="<?php echo $abonne['Compte'];?>"/> <span id="js_compte"></span><br />
 			<hr>
 		</div>
-        <input type="submit" class="bouton" value="Modifier" onClick="ajoutAbonne()"/>
+        <input type="submit" class="bouton" id="submitCenter" value="Modifier" onClick="ajoutAbonne()"/>
     </fieldset>
 </form>

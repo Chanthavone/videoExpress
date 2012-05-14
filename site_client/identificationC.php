@@ -14,6 +14,6 @@
         <legend>Identifiez vous</legend> <br />
 		<label class="label_recherche">Nom de l'abonné : </label><input type="text" name="nom" value="Belmi"/><br />
 		<label class="label_recherche">Numéro de l'abonné : </label><input type="text" name="pass" value="4367Xs" /><br />
-		<input type="submit" class="bouton" name="identificationC" value="Connexion" />
+		<input type="submit" class="bouton" id="submitConnexion" name="identificationC" value="Connexion" />
 	</fieldset>
 </form>

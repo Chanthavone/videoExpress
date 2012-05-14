@@ -54,16 +54,18 @@
         <label for="annee" class="label_recherche">Année</label><input type="text" name="annee" id="annee"/> <span id="js_annee"></span><br />
         <label for="genre" class="label_recherche">Genre</label>
         <select name="genre">
-            <option value="Drame">Drame</option>
-            <option value="Comédie">Comédie</option>
-            <option value="Comédie dramatique">Comédie dramatique</option>
-            <option value="Aventure">Aventure</option>
-            <option value="Documentaire">Documentaire</option>
+        <?php
+            $genres = getGenres();
+            foreach($genres as $genre){
+                echo '<option value="'.$genre.'">'.$genre.'</option>';
+            }
+        ?>
         </select><br />
         <label for="duree" class="label_recherche">Durée</label><input type="text" name="duree" id="duree"/> <span id="js_duree"></span><br />
         <label for="synopsis" class="label_recherche">Synopsis</label>
         <textarea name="synopsis"></textarea> <br />
         <label for="url" class="label_recherche">URL image</label><input type="text" name="url"/> <br />
-        <input type="submit" class="bouton" value="Ajouter" onClick="ajoutFilm()"/>
+        <hr>
+        <input type="submit" class="bouton" id="submitCenter" value="Ajouter" onClick="ajoutFilm()"/>
     </fieldset>
 </form>

@@ -75,6 +75,6 @@
 			<label for="compte" class="label_recherche">Compte</label><input type="text" name="compte" id="compte"/> <span id="js_compte"></span><br />
 			<hr>
 		</div>
-        <input type="submit" class="bouton" value="Ajouter" onClick="ajoutAbonne()"/>
+        <input type="submit" class="bouton" id="submitCenter" value="Ajouter" onClick="ajoutAbonne()"/>
     </fieldset>
 </form>

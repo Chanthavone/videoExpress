@@ -156,7 +156,23 @@
     function insertFilm($numero,$titre,$nationalite,$realisateur,$couleur,$annee,$genre,$duree,$synopsis,$image){
 		global $serv;
 		$req = "INSERT INTO films VALUES($numero,'$titre','$nationalite','$realisateur','$couleur','$annee','$genre','$duree',\"$synopsis\",'$image');";
-		echo $req;
         $res = db_execSQL($req,$serv);
 	}
+    
+    function updateFilm($nofilm,$titre,$nationalite,$realisateur,$couleur,$annee,$genre,$duree,$synopsis,$url) {
+        global $serv;
+		$req = "UPDATE films SET
+        NoFilm = $nofilm,
+        Titre = '$titre',
+        Nationalite = '$nationalite',
+        Realisateur = '$realisateur',
+        Couleur = '$couleur',
+        Annee = '$annee',
+        Genre = '$genre',
+        Duree = '$duree',
+        Synopsis = \"$synopsis\",
+        Image = '$url'
+        WHERE Nofilm = $nofilm;";
+        $res = db_execSQL($req,$serv);
+    }
 ?>

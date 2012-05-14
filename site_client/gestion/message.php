@@ -42,6 +42,14 @@
 		case "ajoutFilmNok" : 
 			echo "Un des champs saisis est incorrect.";
 		break;
+        
+        case "modifierFilmOk" : 
+			echo "La film a bien été modifié.";
+		break;
+		
+		case "modifierFilmNok" : 
+			echo "Un des champs saisis est incorrect.";
+		break;
 		
 		default:
 			require("site_client/accueil.php");	

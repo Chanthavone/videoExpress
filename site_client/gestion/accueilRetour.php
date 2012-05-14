@@ -17,6 +17,6 @@
 		<legend>Retour de cassette</legend>
 		<label class="label_recherche">Numéro de film : </label><input type="text" name="numFilm" id="numFilm" onblur="purge(this)"/><label id="numFilm_js"></label><br />
 		<label class="label_recherche">Numéro exemplaire : </label><input type="text" name="numExemplaire" id="numExemplaire" onblur="purge(this)"/><label id="numExemplaire_js"></label><br />
-		<input type="submit" class="bouton" value="Envoyer" onClick="accueilRetour()"/>
+		<input type="submit" class="bouton" id="submitConnexion" value="Envoyer" onClick="accueilRetour()"/>
 	</fieldset>
 </form>

@@ -155,6 +155,8 @@
 	*/
     function insertFilm($numero,$titre,$nationalite,$realisateur,$couleur,$annee,$genre,$duree,$synopsis,$image){
 		global $serv;
+        if ($image == NULL)
+            $image = "interrogation.png";
 		$req = "INSERT INTO films VALUES($numero,'$titre','$nationalite','$realisateur','$couleur','$annee','$genre','$duree',\"$synopsis\",'$image');";
         $res = db_execSQL($req,$serv);
 	}

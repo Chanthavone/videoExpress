@@ -69,5 +69,28 @@
 		}
 		if(isset($disponible))return $disponible[0];
 	}
+    
+    /* Insert une cassette dans la base de données
+    @param[in] $noFilm : le numero du film
+    @param[in] $exemplaire : le numero d'exemplaire du film
+	@param[in] $support : support de la cassette
+    */
+    function insertCassette($nofilm,$exemplaire,$support) {
+        global $serv;
+        $req = "INSERT INTO cassettes VALUES($nofilm,$exemplaire,'$support','disponible');";
+        $res = db_execSQL($req,$serv);
+    }
+    
+    /* Récupère le numéro d'exemplaire le plus grand pour un film donné
+    @param[in] $nofilm : le numéro du film
+    @return le plus grand numéro d'exemplaire
+    */
+    function getLastNoExemplaire($nofilm) {
+        global $serv;
+		$req = "SELECT MAX(NoExemplaire) FROM cassettes WHERE NoFilm=\"$nofilm\";";
+		$res = db_execSQL($req,$serv);
+        $resultat = mysql_fetch_row($res);
+		return $resultat[0];
+    }
 
 ?>

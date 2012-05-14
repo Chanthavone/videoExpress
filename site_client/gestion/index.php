@@ -65,6 +65,10 @@
             case "modifierAbonne" :
                 require("site_client/gestion/modifierAbonne.php");
             break;
+            
+            case "ajoutCassette" :
+                require("site_client/gestion/ajoutCassette.php");
+            break;
 			
 			case "message" :
 				require("site_client/gestion/message.php");

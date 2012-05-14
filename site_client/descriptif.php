@@ -58,15 +58,15 @@
 				echo '</div>';
 			}
 			else{
-				echo '<h1>Le numéro '.$numFilm.' n\'existe pas !</h1>';
+				echo '<br />Le numéro '.$numFilm.' n\'existe pas ! <br/><br/>';
 			}
 		}
 		else{
-			echo "<h3>Numéro de film incorrect !</h3>";
+			echo "Numéro de film incorrect ! <br/>";
 		}
 	}
 	else{
-		echo "<h3>Impossible d'avoir le descriptif !</h3>";
+		echo "Impossible d'avoir le descriptif !<br/>";
 	}
 	//Lien de retour
 	echo '<a href="javascript:history.go(-1)">Retour</a>';

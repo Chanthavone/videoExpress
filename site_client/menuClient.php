@@ -12,6 +12,7 @@
 			<li><a href="index.php?module=gestion&admin=listeAbonnes">Liste de abonnés</a></li>
 			<li><a href="index.php?module=gestion&admin=ajoutFilm">Ajouter un film</a></li>
             <li><a href="index.php?module=gestion&admin=listeFilms">Liste des films</a></li>
+            <li><a href="index.php?module=gestion&admin=ajoutCassette">Ajouter une cassette</a></li>
             <li><a href="index.php?module=deconnexion">Déconnexion</a></li>
 		</ul>
 <?php } ?>

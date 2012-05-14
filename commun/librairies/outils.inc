@@ -8,7 +8,7 @@
 		echo '<div id="header">
 			<div id="banniere">
 				<div id="titre">
-					<h1>'.$page.'</h1>
+					<a href="'.$page.'"><div id="lien_banniere"></div></a>
 				</div>
 				<br />
 				<div id="auteur">

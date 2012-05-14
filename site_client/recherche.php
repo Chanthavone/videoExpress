@@ -82,7 +82,7 @@
 			echo displayNextPreviousButtons($page,$total,$nombre,$donnée_a_transmettre);
 		}
 		else{
-			echo '<h3>Aucun Resultat ! </h3>';
+			echo '<br />Aucun Resultat ! <br /><br />';
 		}
 
 	//Lien de retour

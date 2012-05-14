@@ -109,9 +109,9 @@
 	else{
 		$existeAdmin  = verifAdmin($nom,$pass);
 		if($existeAdmin)
-			echo "Vous êtes connecté en tant que administrateur. Vous ne pouvez donc pas commander des cassetttes.";
+			echo "<br />Vous êtes connecté en tant que administrateur. Vous ne pouvez donc pas commander de cassettes.<br /><br />";
 		else
-			echo "Le nom ou le code de l'abonné est incorrect. Réesseyez !";
+			echo "<br />Le nom ou le code de l'abonné est incorrect. Réesseyez !<br /><br />";
 	}
     
 	echo '<a href="javascript:history.go(-1)">Retour</a>';

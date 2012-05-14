@@ -42,7 +42,7 @@ include("modele/modeleFilms.php");
 			<select name="genre" class="petit_champ">
 				<option value="null"></option>
 				<?php
-					$genres = getGenres();
+					$genres = array('Comédie','Comédie dramatique','Drame','Aventure','Documentaire');
 					foreach($genres as $genre){
 						echo '<option value="'.$genre.'">'.$genre.'</option>';
 					}

@@ -50,6 +50,14 @@
 		case "modifierFilmNok" : 
 			echo "Un des champs saisis est incorrect.";
 		break;
+        
+        case "ajoutCassetteOk" : 
+			echo "La cassette a bien été ajoutée.";
+		break;
+        
+        case "ajoutCassetteNok" : 
+			echo "Le numéro de film saisi n'existe pas.";
+		break;
 		
 		default:
 			require("site_client/accueil.php");	

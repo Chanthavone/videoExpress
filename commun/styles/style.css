@@ -37,6 +37,11 @@
 	padding-top : 20px;
 }
 
+#lien_banniere {
+    width : 500px;
+    height : 120px;
+}
+
 #auteur {
 	width : 600px;
 	height : 30px;
@@ -354,7 +359,7 @@ a {
 	width:100%;
 }
 
-#descriptif_film_descriptif h3 {
+#descriptif_film_descriptif h3, #div_accueil h3 {
 	margin-top:0px;
 	margin-bottom:5px;
 	font-style:italic;

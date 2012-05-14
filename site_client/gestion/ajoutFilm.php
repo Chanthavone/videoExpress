@@ -55,7 +55,7 @@
         <label for="genre" class="label_recherche">Genre</label>
         <select name="genre">
         <?php
-            $genres = getGenres();
+            $genres = array('Comédie','Comédie dramatique','Drame','Aventure','Documentaire');
             foreach($genres as $genre){
                 echo '<option value="'.$genre.'">'.$genre.'</option>';
             }

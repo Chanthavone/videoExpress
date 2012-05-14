@@ -52,7 +52,7 @@
         <label for="genre" class="label_recherche">Genre</label>
         <select name="genre">
             <?php
-                $genres = getGenres();
+                $genres = array('Comédie','Comédie dramatique','Drame','Aventure','Documentaire');;
                 foreach($genres as $genre){
                     if ($genre == $film['Genre']) {
                         echo '<option selected value="'.$genre.'">'.$genre.'</option>';

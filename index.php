@@ -1,5 +1,5 @@
 ﻿<?php
-// On démarre la session AVANT d'écrire du code HTML
+// On démarre la session AVANT d'écrire du code HTML ba ouai morray
 session_start();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
